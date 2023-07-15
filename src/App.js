@@ -2,7 +2,7 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import MenuRoutes from './components/MenuRoutes';
-
+import './styles/App.css';
 
 function App() {
   return (

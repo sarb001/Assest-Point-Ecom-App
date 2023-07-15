@@ -1,0 +1,13 @@
+.header-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 25px;
+    background-color: brown;
+}
+.header-second-section{
+    display: grid;
+    grid-template-columns : 1fr 1fr 1fr 1fr;
+}
+#link-one > a {
+    text-decoration: none;
+}
