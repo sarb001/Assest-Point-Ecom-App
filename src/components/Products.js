@@ -7,19 +7,19 @@ const Products = () => {
    const [prod,setprod] = useState([]);
    const [cat,setcat]   = useState([]);
 
-   useEffect(() => {
-     fetch('/api/categories')
-    //  fetch('/api/products')
-      .then(res => res.json())
-      .then(json => {
-        //  setprod(json.prod);
-         setcat(json.cat);
-         console.log('ssss')
-      })
-      .catch(e => {
-        console.log('Error here - ');
-      })
-   },[])
+  //  useEffect(() => {
+  //    fetch('/api/categories')
+  //   //  fetch('/api/products')
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       //  setprod(json.prod);
+  //        setcat(json.cat);
+  //        console.log('ssss')
+  //     })
+  //     .catch(e => {
+  //       console.log('Error here - ');
+  //     })
+  //  },[])
 
 
   return (

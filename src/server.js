@@ -3,6 +3,9 @@ import App from "./App";
 import { Model, Server } from 'miragejs';
 import { products } from './backend/db/products';
 import { categories } from './backend/db/categories';
+import { users } from './backend/db/users';
+import { getAllProductsHandler } from "./backend/Controllers/ProductController";
+import { getAllCategoriesHandler } from "./backend/Controllers/CartController";
 
 
 export function makeServer(){
@@ -11,6 +14,9 @@ export function makeServer(){
         models : {
             product  : Model,
             category : Model,
+            user : Model,
+            cart: Model,
+            wishlist : Model,
         },
 
         seeds(server){
@@ -21,18 +27,19 @@ export function makeServer(){
             categories.forEach((item) => (
                 server.create("category" , {...item})
             ));
+
+             users.forEach((item) => (
+                server.create("user" , {...item , cart : [] , wishlist : []})
+            ));
         },
 
         routes(){
             this.namespace = "api" ;
-            
-            this.get('/products' , schema => {
-                return schema.products.all();       
-            })
+            this.get('/products' , getAllProductsHandler.bind(this));
 
-            this.get('/categories' , (schema , request) => {
-                return schema.categories.all();
-            });
+            this.get('/categories', getAllCategoriesHandler.bind(this));
+
+            // this.get('/user' , );
         }
     })
 }
