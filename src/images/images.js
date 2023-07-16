@@ -24,4 +24,4 @@ const IMAGES = {
   notFound,
 };
 
-export {IMAGES};
+export  default IMAGES
