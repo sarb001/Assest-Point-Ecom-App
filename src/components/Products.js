@@ -4,19 +4,23 @@ import Footer from './Footer'
 
 const Products = () => {
 
-   const [todos,seTodos] = useState([]);
+   const [prod,setprod] = useState([]);
+   const [cat,setcat]   = useState([]);
 
    useEffect(() => {
-     fetch('/api/toclass')
+     fetch('/api/categories')
+    //  fetch('/api/products')
       .then(res => res.json())
       .then(json => {
-         seTodos(json.todos);
+        //  setprod(json.prod);
+         setcat(json.cat);
          console.log('ssss')
       })
       .catch(e => {
         console.log('Error here - ');
       })
    },[])
+
 
   return (
     <>
