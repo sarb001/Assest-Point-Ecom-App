@@ -9,6 +9,7 @@ import Home from './Home'
 import PageNotFound from './PageNotFound'
 import Order from './Order'
 import Checkout from './Checkout'
+import { Profile } from './Profile'
 
 const MenuRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const MenuRoutes = () => {
             <Route path = '/login'      element = {<Login />}>  </Route>
             <Route path = '/signup'     element = {<Signup />}>  </Route>
             <Route path = '/products'  element   = {<Products />}>  </Route>
+            <Route path = '/profile'  element   = {<Profile  />}>  </Route>
             <Route path = '/cart'       element = {<Cart />}>  </Route>
             <Route path = '/wishlist'   element = {<Wishlist  />}>  </Route>
             <Route path = '/checkout'   element = {<Checkout  />}>  </Route>

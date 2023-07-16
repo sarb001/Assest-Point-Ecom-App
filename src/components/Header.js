@@ -12,7 +12,7 @@ const Header = () => {
                         <span id = "link-one" > <Link to = "/"> Assest Point  </Link> </span>
                      </div>
                      <div className="header-second-section">
-                        <span id = "link-one"> <Link to = ""> Shop  </Link> </span>
+                        <span id = "link-one"> <Link to = "/products"> Shop  </Link> </span>
                         <span id = "link-one"> <Link to = "/profile"> Profile  </Link> </span>
                         <span id = "link-one"> <Link to = "/wishlist"> Wishlist  </Link> </span>
                         <span id = "link-one"> <Link to = "/cart"> Cart  </Link> </span>

@@ -51,15 +51,22 @@ const Home = () => {
                 </div>
 
                   <div className="book-week-section">
-                      <div className="text-section">Book of the Week</div>
-                       <div className="mainbook-section">
-                          <span> <img src = '../images/book-1.jpg'  alt = "The Psychology of Money" /> </span>
+                            <h2>   Book of the Week </h2>
+                      <div className="books-partition"style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+                          <div className="mainbook-section" >
+                                <span> 
+                                  <img src = {IMAGES.book1}  alt = "The Psychology of Money" style = {{width:'45%'}} /> 
+                                </span>
+                          </div>
+
+                          <div className="text-section">
                           <span> 
-                           <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
-                           <p>By Morgan Housel </p>
-                           <button> Read More </button>
+                              <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
+                              <p>By Morgan Housel </p>
+                              <button> Read More </button>
                           </span>
-                       </div>
+                          </div>
+                      </div>
                   </div>
 
           </div> 
