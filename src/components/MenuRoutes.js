@@ -17,7 +17,7 @@ const MenuRoutes = () => {
             <Route path = '/'      element = {<Home  />}>  </Route>
             <Route path = '/login'      element = {<Login />}>  </Route>
             <Route path = '/signup'     element = {<Signup />}>  </Route>
-            <Route path = '/productss'  element   = {<Products />}>  </Route>
+            <Route path = '/products'  element   = {<Products />}>  </Route>
             <Route path = '/cart'       element = {<Cart />}>  </Route>
             <Route path = '/wishlist'   element = {<Wishlist  />}>  </Route>
             <Route path = '/checkout'   element = {<Checkout  />}>  </Route>

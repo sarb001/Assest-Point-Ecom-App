@@ -1,8 +1,9 @@
 
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import MenuRoutes from './components/MenuRoutes';
-import './styles/App.css';
+import './styles/common.css';
 
 function App() {
   return (
