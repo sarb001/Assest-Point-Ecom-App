@@ -4,8 +4,6 @@ import Footer from './Footer'
 import { Link } from 'react-router-dom';
 import IMAGES from '../images/images';
 
-console.log('images are -',IMAGES);
-
  const featureImages = [
   {
      imgLink : IMAGES.selfHelp,
