@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: 25px;
-    background-color: brown;
+    background-color: rgb(154, 221, 38);
+    padding: 2%;
 }
 .header-second-section{
     display: grid;
