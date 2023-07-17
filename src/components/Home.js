@@ -56,13 +56,15 @@ const Home = () => {
                                   <img src = {IMAGES.book1}  alt = "The Psychology of Money" style = {{width:'45%'}} /> 
                                 </span>
                           </div>
-
+                          
                           <div className="text-section">
-                          <span> 
-                              <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
-                              <p>By Morgan Housel </p>
-                              <button> Read More </button>
-                          </span>
+
+                            <span> 
+                                <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
+                                <p>By Morgan Housel </p>
+                                <button> Read More </button>
+                            </span>
+
                           </div>
                       </div>
                   </div>

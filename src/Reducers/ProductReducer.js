@@ -23,5 +23,11 @@ export const ProductReducer = (state,action) => {
             ...state,
             category : {...state.category , realEstate : !state.category.realEstate }
          }
+
+         case "RATING" : 
+         return { ...state,  rating : action.payload };
+
+         case "SORT_BY_LOW_OR_HIGH":
+             return { ...state,sortBy : action.payload }
     }
 }
