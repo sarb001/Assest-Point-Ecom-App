@@ -18,12 +18,12 @@ const Products = () => {
             setLoader(false);
             setProducts(response.data.products);
             console.log('response is -',response.data.products);
+
           }catch(error){
             console.log('error is -',error);
           }
         })()
     },[])
-
 
   return (
     <>

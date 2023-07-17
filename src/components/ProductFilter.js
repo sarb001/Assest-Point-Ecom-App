@@ -1,6 +1,7 @@
 import React from 'react'
 import CategoryData from './CategoryData'
 import RatingData from './RatingData'
+import { useProduct } from '../context/MainContext'
 
 const ProductFilter = () => {
 
@@ -9,37 +10,53 @@ const ProductFilter = () => {
     const handlerating = () => {}
     const handlesorting = () => {}
 
-    const categoryData = [
+    const { state , dispatch } = useProduct();
+    const { price ,category , rating , sortBy } = state;
+
+    const categoryData = [       
+         
         {
             title : "self-help",
             label:  "self-help",
+            isChecked : category.selfHelp,
+            actionType : "SELF_HELP"
         },
+
         {
             title : "stock",
             label: "Stock investing",
+            isChecked : category.stockInvesting,
+            actionType : "STOCK_INVESTING",
         },
+
         {
             title : "real-estate",
             label: "Real Estate Investing",
+            isChecked : category.realEstate,
+            actionType : "REAL_ESTATE",
         },
     ]
     
     const ratingData = [
         {
             title : "4-Star",  
-            label : '4 stars & above' 
+            label : '4 stars & above',
+            star : 4
         },
         {
             title : "3-Star",  
-            label : '3 stars & above' 
+            label : '3 stars & above',
+            star : 3
         },
         {
             title : "2-Star",  
-            label : '2 stars & above' 
+            label : '2 stars & above',
+            star : 2
         },
         {
             title : "1-Star",  
-            label : '1 stars & above' 
+            label : '1 stars & above',
+            star : 1
         },
     ]
 
