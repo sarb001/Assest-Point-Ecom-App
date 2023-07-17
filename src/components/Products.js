@@ -4,6 +4,7 @@ import Footer from './Footer'
 import axios from 'axios';
 import '../styles/Products.css';
 import ProductCard from './ProductCard';
+import ProductFilter from './ProductFilter';
 
 const Products = () => {
 
@@ -29,7 +30,7 @@ const Products = () => {
      <Header  />
       <div className="products-container" style= {{display:'grid',gridTemplateColumns:'1fr 2fr',margin:'2% 4%'}}>
           <div className="filter-section">
-              <span> Filters </span>
+              <span> <ProductFilter /> </span>
           </div>
           <div className="text-section">
             <h2> Total No. of Products </h2>
