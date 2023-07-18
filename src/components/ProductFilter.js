@@ -5,10 +5,6 @@ import { useProduct } from '../context/MainContext'
 
 const ProductFilter = () => {
 
-    const handlerange = () => {}
-    const handlecheckbox = () => {}
-    const handlerating = () => {}
-    const handlesorting = () => {}
 
     const { state , dispatch } = useProduct();
     const { price ,category , rating , sortBy } = state;

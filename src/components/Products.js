@@ -5,11 +5,17 @@ import axios from 'axios';
 import '../styles/Products.css';
 import ProductCard from './ProductCard';
 import ProductFilter from './ProductFilter';
+import { getProductsbyPrice } from '../sortingdata/getProductsbyPrice';
+import { useProduct } from '../context/MainContext';
+import { getProductsbyCategory } from '../sortingdata/getProductsbyCategory';
+import { getProductsbyRating } from '../sortingdata/getProductsbyRating';
+import { getProductsBySort } from '../sortingdata/getProductsBySort';
 
 const Products = () => {
 
     const [Products,setProducts] = useState([]);
     const [Loader,setLoader] = useState(true);
+    const {state,dispatch} = useProduct();
 
     useEffect(()  => {
         (async () => {
@@ -25,10 +31,20 @@ const Products = () => {
         })()
     },[])
 
+    const productsbyPrice    = getProductsbyPrice(Products,state.price);
+
+    const productsbyCategory = getProductsbyCategory(productsbyPrice,state.category);
+
+    const productsbyRating   = getProductsbyRating(productsbyCategory,state.rating);
+
+    const finalproducts      = getProductsBySort(productsbyRating,state.sortBy);
+
+
   return (
     <>
      <Header  />
-      <div className="products-container" style= {{display:'grid',gridTemplateColumns:'1fr 2fr',margin:'2% 4%'}}>
+      <div className="products-container" style= {{display:'grid',gridTemplateColumns:'1fr 2fr',
+      margin:'2% 4%'}}>
           <div className="filter-section">
               <span> <ProductFilter /> </span>
           </div>
