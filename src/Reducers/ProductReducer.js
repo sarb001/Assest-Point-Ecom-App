@@ -28,6 +28,12 @@ export const ProductReducer = (state,action) => {
          return { ...state,  rating : action.payload };
 
          case "SORT_BY_LOW_OR_HIGH":
-             return { ...state,sortBy : action.payload }
+             return { ...state,sortBy : action.payload };
+
+         case "SORT_BY_PRICE": 
+           return {...state , price : action.payload };
+
+           default : 
+             return state; 
     }
 }
