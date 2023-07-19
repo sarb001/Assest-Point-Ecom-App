@@ -32,13 +32,17 @@ const Products = () => {
     },[])
 
     const productsbyPrice    = getProductsbyPrice(Products,state.price);
-
+    console.log('productsby Price -',productsbyPrice);
+    
     const productsbyCategory = getProductsbyCategory(productsbyPrice,state.category);
-
+    console.log('productsby Category  -',productsbyCategory);
+    
     const productsbyRating   = getProductsbyRating(productsbyCategory,state.rating);
-
+    console.log('productsby Rating -',productsbyRating);
+    
     const finalproducts      = getProductsBySort(productsbyRating,state.sortBy);
 
+    console.log('finalProducts are -',finalproducts);
 
   return (
     <>
@@ -49,9 +53,9 @@ const Products = () => {
               <span> <ProductFilter /> </span>
           </div>
           <div className="text-section">
-            <h2> Total No. of Products </h2>
+            <h2> Total No. {finalproducts.length} of Products </h2>
               <div className="all-products" style = {{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
-                 {Products.map((item) => (
+                 {finalproducts.map((item) => (
                     <ProductCard  maindata = {item}  key = {item.title} />
                   )
                  )}

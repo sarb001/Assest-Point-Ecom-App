@@ -1,7 +1,6 @@
 
 
 export const getProductsbyRating = (product,rating) => {
-    return [...product].filter((product) => (
-        product.rating >= rating
-    ))
+    return rating ?  
+    [...product].filter((product) =>  product.rating >= rating ) : product;
 }
