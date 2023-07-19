@@ -10,15 +10,17 @@ import PageNotFound from './PageNotFound'
 import Order from './Order'
 import Checkout from './Checkout'
 import { Profile } from './Profile'
+import SingleProduct from './SingleProduct'
 
 const MenuRoutes = () => {
   return (
     <>
          <Routes >
-            <Route path = '/'      element = {<Home  />}>  </Route>
+            <Route path = '/'           element = {<Home  />}>  </Route>
             <Route path = '/login'      element = {<Login />}>  </Route>
             <Route path = '/signup'     element = {<Signup />}>  </Route>
             <Route path = '/products'  element   = {<Products />}>  </Route>
+            <Route path = '/product/:productId'   element   = {<SingleProduct />}>  </Route>
             <Route path = '/profile'  element   = {<Profile  />}>  </Route>
             <Route path = '/cart'       element = {<Cart />}>  </Route>
             <Route path = '/wishlist'   element = {<Wishlist  />}>  </Route>

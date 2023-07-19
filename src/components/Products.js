@@ -54,12 +54,14 @@ const Products = () => {
           </div>
           <div className="text-section">
             <h2> Total No. {finalproducts.length} of Products </h2>
+
               <div className="all-products" style = {{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
                  {finalproducts.map((item) => (
                     <ProductCard  maindata = {item}  key = {item.title} />
                   )
                  )}
               </div>
+              
           </div>
       </div>
      <Footer />

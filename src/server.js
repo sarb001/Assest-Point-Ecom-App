@@ -4,7 +4,7 @@ import { Model, Server } from 'miragejs';
 import { products } from './backend/db/products';
 import { categories } from './backend/db/categories';
 import { users } from './backend/db/users';
-import { getAllProductsHandler } from "./backend/Controllers/ProductController";
+import { getAllProductsHandler, getSingleProductHandler } from "./backend/Controllers/ProductController";
 import { getAllCategoriesHandler } from "./backend/Controllers/CartController";
 
 
@@ -35,7 +35,9 @@ export function makeServer(){
 
         routes(){
             this.namespace = "api" ;
+            
             this.get('/products' , getAllProductsHandler.bind(this));
+            this.get('/products/:productId' , getSingleProductHandler.bind(this));
 
             this.get('/categories', getAllCategoriesHandler.bind(this));
 
