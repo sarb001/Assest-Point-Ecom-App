@@ -30,7 +30,9 @@ const ProductCard = ({maindata}) => {
 
               </div>
               <div className="addtocart-third-section" style = {{margin:'3%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
-                 <button style = {{margin:'1%'}}> Add to Cart </button>
+                 <button style = {{margin:'1%'}}>
+                   Add to Cart
+                   </button>
                  <span style = {{cursor:'pointer',textAlign:'center'}}> <AiOutlineHeart /> </span>
               </div>
 

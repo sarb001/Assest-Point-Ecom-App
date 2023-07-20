@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../styles/Header.css';
 import { BsFillCartFill } from 'react-icons/bs';
 import {AiOutlineHeart} from 'react-icons/ai'
+
 const Header = () => {
   return (
     <>
