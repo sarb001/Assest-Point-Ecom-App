@@ -5,7 +5,7 @@ import { products } from './backend/db/products';
 import { categories } from './backend/db/categories';
 import { users } from './backend/db/users';
 import { getAllProductsHandler, getSingleProductHandler } from "./backend/Controllers/ProductController";
-import { getAllCategoriesHandler } from "./backend/Controllers/CartController";
+import { additemtoCartHandler, getAllCategoriesHandler, getCartItemHandler, removeallitemtfromCartHandler, removeitemfromCartHandler, updateitemfromCartHandler } from "./backend/Controllers/CartController";
 
 
 export function makeServer(){
@@ -41,7 +41,14 @@ export function makeServer(){
 
             this.get('/categories', getAllCategoriesHandler.bind(this));
 
-            // this.get('/user' , );
+            this.get('/user/cart' ,  getCartItemHandler.bind(this));
+            this.post('/user/cart' , additemtoCartHandler.bind(this));
+
+            this.post('/user/cart/:productId' , updateitemfromCartHandler.bind(this));
+            this.delete('/user/cart/:productId' , removeitemfromCartHandler.bind(this));
+
+            this.delete('/user/cart' , removeallitemtfromCartHandler.bind(this));
+
         }
     })
 }

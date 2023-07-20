@@ -10,3 +10,19 @@ export const getAllCategoriesHandler =     function () {
             );
     }
 };
+
+
+export const getCartItemHandler = function (schema,request) {
+        // const  userId = requiresAuth.call(this, request);
+}
+
+export const additemtoCartHandler = () => {
+
+}
+
+export const updateitemfromCartHandler = () => {
+
+}
+
+export const removeitemfromCartHandler = () => {}
+export const removeallitemtfromCartHandler = () => {}
