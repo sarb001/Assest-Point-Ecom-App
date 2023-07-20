@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/Header.css';
-
-
+import { BsFillCartFill } from 'react-icons/bs';
+import {AiOutlineHeart} from 'react-icons/ai'
 const Header = () => {
   return (
     <>
@@ -14,8 +14,8 @@ const Header = () => {
                      <div className="header-second-section">
                         <span id = "link-one"> <Link to = "/products"> Shop  </Link> </span>
                         <span id = "link-one"> <Link to = "/profile"> Profile  </Link> </span>
-                        <span id = "link-one"> <Link to = "/wishlist"> Wishlist  </Link> </span>
-                        <span id = "link-one"> <Link to = "/cart"> Cart  </Link> </span>
+                        <span id = "link-one"> <Link to = "/wishlist"> <AiOutlineHeart /> </Link> </span>
+                        <span id = "link-one"> <Link to = "/cart"> <BsFillCartFill />  </Link> </span>
                      </div>
                 </div>
             </header>
