@@ -49,8 +49,8 @@ const Login = () => {
   const handleTestLogin = (e) => {
       e.preventDefault();
       setLoginData({
-        email: '',
-        password : '',
+        email: 'testuser@gmail.com',
+        password : 'testuser',
         error : false,
       });
   }
