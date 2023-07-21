@@ -17,7 +17,7 @@ const CartProvider = ({children}) => {
 
     return (
         <CartContext.Provider value = {{cartState,cartDispatch}}>
-            {children}4
+            {children}
         </CartContext.Provider>
     )
 }   

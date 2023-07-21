@@ -11,7 +11,7 @@ import Order from './Order'
 import Checkout from './Checkout'
 import { Profile } from './Profile'
 import SingleProduct from './SingleProduct'
-import  RequireAuth  from '../components/RequireAuth';
+import   { RequireAuth }  from '../components/RequireAuth';
 
 
 const MenuRoutes = () => {

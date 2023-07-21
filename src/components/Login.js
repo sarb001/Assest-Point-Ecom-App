@@ -5,11 +5,13 @@ import '../styles/common.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useAuth } from '../context/AuthContext';
 
 
 const Login = () => {
 
    const  navigate = useNavigate();
+   const { setAuth } =    useAuth();
 
   const [loginData,setLoginData] = useState({
     email : "",
@@ -38,6 +40,7 @@ const Login = () => {
       });
       localStorage.setItem('token' , response.data.encodedToken);
       localStorage.setItem('userData' , response.data.foundUser);
+      setAuth({token : response.data.encodedToken  , isLoggedIn : true})
       toast.success(' You have Logged In ');
       navigate('/');
     }catch(error){

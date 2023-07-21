@@ -4,10 +4,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import '../styles/common.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useAuth } from '../context/AuthContext';
 
 const Signup = () => {
 
    const navigate = useNavigate();
+   const { setAuth } =  useAuth();
 
    const [signUpData,setSignUpData] = useState({
       firstName :"",
@@ -25,11 +27,11 @@ const Signup = () => {
    
    const handleTestSignup = () => {
      setSignUpData({
-       firstName : 'testuser',
+       firstName : 'testuser1',
        lastName : 'singh',
-       email : 'testuser@gmail.com',
-       password : 'testuser',
-       confirmPassword : 'testuser',  
+       email : 'testuser1@gmail.com',
+       password : 'testuser1',
+       confirmPassword : 'testuser1',  
       })
    }
 
@@ -48,9 +50,10 @@ const Signup = () => {
            firstName : signUpData.firstName,
            lastName : signUpData.lastName,
         };
+        
         localStorage.setItem('token' , response.data.encodedToken);  
         localStorage.setItem('userData' , JSON.stringify(userData));
-        
+        setAuth({token : response.data.encodedToken  , isLoggedIn : true});
         toast.success(" You have signed inN ");
         navigate("/");  
       }catch(error){
