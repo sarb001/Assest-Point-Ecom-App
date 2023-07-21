@@ -19,7 +19,6 @@ import IMAGES from '../images/images';
   },
  ]
 
-
 const Home = () => {
   return (
     <>

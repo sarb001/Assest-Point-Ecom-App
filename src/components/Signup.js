@@ -33,7 +33,6 @@ const Signup = () => {
       })
    }
 
-
    const handleSignUp = async(e) => {
      e.preventDefault();
      if(signUpData.password === signUpData.confirmPassword){
@@ -67,7 +66,7 @@ const Signup = () => {
     <>
      <Header />
 
-     <section className="app-ctn">
+      <section className="app-ctn">
         <form className="br-md" onSubmit={handleSignUp}>
           <h2 className="text-center mg-bottom-md">Signup</h2>
           <div className="form-control">
