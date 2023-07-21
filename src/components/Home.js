@@ -42,7 +42,7 @@ const Home = () => {
                         {featureImages.map((item) => (
                        <Link to = '/products'>
                          <h2> {item.title} </h2>
-                        <img key = {item.title} src = {item.imgLink}  alt =  {item.title} style = {{width:'85%'}} />
+                          <img key = {item.title} src = {item.imgLink}  alt =  {item.title} style = {{width:'85%'}} />
                        </Link>
                         ))}
                     </div>

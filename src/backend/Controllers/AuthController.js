@@ -1,6 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import { Response } from 'miragejs';
-import { sign } from 'jwt-encode';
+import { formatDate } from '../../utils/authUtils';
+
+const sign = require('jwt-encode');
 
 
 export const signupHandler = function (schema,request) {
@@ -18,16 +20,19 @@ export const signupHandler = function (schema,request) {
                 _id,
                 email,
                 password,
-                createdAt : 'de',
-                updatedAt : 'de',
+                createdAt : formatDate(),
+                ...rest,
+                updatedAt : formatDate(),
                 cart : [],
                 wishlist: [],
             };
             const createUser = schema.users.create(newUser);
+            console.log('  Created USER --',createUser);
             const encodedToken =  sign({ _id , email } , 'jassa@123');
             return new Response(201, {} , {createUser , encodedToken });
 
         }catch(error){
+            console.log('error inn -',error);
             return new Response(500 , {} ,{error});
         }
 }
@@ -38,7 +43,7 @@ export const loginHandler =  function (schema,request)  {
 
          const foundUser = schema.users.findBy({email});
          if(!foundUser){
-             return new Response(422 , {} , {
+             return new Response(404 , {} , {
                 errors : [" Email Not Found "]
              })
          }
@@ -51,8 +56,6 @@ export const loginHandler =  function (schema,request)  {
          }
          new Response(401,{} , {errors: [
             "  UnAuthorized Access Error "]})
-
-
      }catch(error){
          return new Response(500, {} , {error});
      }

@@ -25,12 +25,11 @@ const Signup = () => {
    
    const handleTestSignup = () => {
      setSignUpData({
-       firstName : '',
-       lastName : '',
-       email : '',
-       password : '',
-       confirmPassword : '',  
-      
+       firstName : 'testuser',
+       lastName : 'singh',
+       email : 'testuser@gmail.com',
+       password : 'testuser',
+       confirmPassword : 'testuser',  
       })
    }
 
@@ -52,6 +51,7 @@ const Signup = () => {
         };
         localStorage.setItem('token' , response.data.encodedToken);  
         localStorage.setItem('userData' , JSON.stringify(userData));
+        
         toast.success(" You have signed inN ");
         navigate("/");  
       }catch(error){
