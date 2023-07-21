@@ -62,6 +62,7 @@ export const additemtoCartHandler = function (schema,request) {
     }
 }
 
+// remove Items from User's cart 
 
 export const removeitemfromCartHandler =    function(schema,request) {
     const  userId = AuthorizingRoute.call(this, request);
@@ -88,9 +89,11 @@ export const removeitemfromCartHandler =    function(schema,request) {
     }
 }
         
+// remove All items 
 
-export const removeallitemtfromCartHandler = () => {
+export const removeallitemtfromCartHandler = function(schema,request)  {
     const  userId = AuthorizingRoute.call(this, request);
+
     try{
       if(!userId){
         new Response(
@@ -102,9 +105,10 @@ export const removeallitemtfromCartHandler = () => {
           );
         }  
         let userCart = schema.users.findBy({ _id : userId }).cart;
-        userCart : [],
+        userCart  = [];
         this.db.users.update({ _id: userCart },{cart : userCart});
         return new Response(200 , {} , {cart : userCart});
+
     }catch(error){
         return new Response(
             500 , {} , {
@@ -114,4 +118,7 @@ export const removeallitemtfromCartHandler = () => {
     }
 }
 
-export const updateitemfromCartHandler = () => {}
+
+export const updateitemfromCartHandler = function(schema,request){
+
+}

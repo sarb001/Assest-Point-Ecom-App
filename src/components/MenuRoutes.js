@@ -11,6 +11,8 @@ import Order from './Order'
 import Checkout from './Checkout'
 import { Profile } from './Profile'
 import SingleProduct from './SingleProduct'
+import  RequireAuth  from '../components/RequireAuth';
+
 
 const MenuRoutes = () => {
   return (
@@ -21,10 +23,36 @@ const MenuRoutes = () => {
             <Route path = '/signup'     element = {<Signup />}>  </Route>
             <Route path = '/products'  element   = {<Products />}>  </Route>
             <Route path = '/product/:productId'   element   = {<SingleProduct />}>  </Route>
-            <Route path = '/profile'  element   = {<Profile  />}>  </Route>
-            <Route path = '/cart'       element = {<Cart />}>  </Route>
-            <Route path = '/wishlist'   element = {<Wishlist  />}>  </Route>
-            <Route path = '/checkout'   element = {<Checkout  />}>  </Route>
+            
+            <Route path = '/profile'  element   = { 
+              <RequireAuth>
+                <Profile  />
+              </RequireAuth>
+            }> 
+            </Route>
+            
+            <Route path = '/cart'       element = {
+              <RequireAuth>
+                <Cart />
+              </RequireAuth>
+
+            }>  
+            </Route>
+
+            <Route path = '/wishlist'   element = {
+              <RequireAuth>
+                <Wishlist  />
+              </RequireAuth>
+            }>  
+            </Route>
+
+            <Route path = '/checkout'   element = {
+              <RequireAuth>
+                <Checkout  />
+              </RequireAuth>
+            }> 
+            </Route>
+
             <Route path = '/order'   element = {<Order />}>  </Route>
             <Route path = '*'   element = {<PageNotFound  />}>  </Route>
          </Routes>
