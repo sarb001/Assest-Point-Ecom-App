@@ -2,19 +2,58 @@ import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import '../styles/common.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
 
-   const handleLogin = () => {}
-   const handleEmail = () => {}
-   const handlePassword = () => {}
-   const handleTestLogin = () => {}
+   const  navigate = useNavigate();
 
-   const [loginData,setloginData] = useState({
-       email : "",
-       password : ""
-   })
+  const [loginData,setLoginData] = useState({
+    email : "",
+    password : "",
+    error :false,
+})
+
+  const handleEmail = (e) => {
+     setLoginData((prev) => (
+      {...prev, email : e.target.value , error : false }
+     ))
+  }
+
+  const handlePassword = (e) => {
+      setLoginData((prev) => (
+         {...prev , password : e.target.value , error : false}
+      ))
+  }
+
+  const handleLogin =  async(e) => {
+    e.preventDefault();
+    try{
+      const response = await axios.post('/api/auth/login' , {
+        email  : loginData.email,
+        password  : loginData.password,
+      });
+      localStorage.setItem('token' , response.data.encodedToken);
+      localStorage.setItem('userData' , response.data.foundUser);
+      toast.success(' You have Logged In ');
+      navigate('/');
+    }catch(error){
+       console.error('Login Error',error);
+       toast.error(error.message); 
+    }
+  }
+
+  const handleTestLogin = (e) => {
+      e.preventDefault();
+      setLoginData({
+        email: '',
+        password : '',
+        error : false,
+      });
+  }
 
   return (
     <>
@@ -23,9 +62,9 @@ const Login = () => {
       <section className="app-ctn">
         <form className="br-md" onSubmit={handleLogin}>
           <h2 className="text-center mg-bottom-md">Login</h2>
-          {/* {loginData.error && (
+          {loginData.error && (
             <p className="error-msg form-control">Invalid credentials</p>
-          )} */}
+          )}
           <div className="form-control">
             <label htmlFor="email" className="fw-bold">
               Email address

@@ -6,6 +6,7 @@ import { categories } from './backend/db/categories';
 import { users } from './backend/db/users';
 import { getAllProductsHandler, getSingleProductHandler } from "./backend/Controllers/ProductController";
 import { additemtoCartHandler, getAllCategoriesHandler, getCartItemHandler, removeallitemtfromCartHandler, removeitemfromCartHandler, updateitemfromCartHandler } from "./backend/Controllers/CartController";
+import { loginHandler, signupHandler } from "./backend/Controllers/AuthController";
 
 
 export function makeServer(){
@@ -36,6 +37,9 @@ export function makeServer(){
         routes(){
             this.namespace = "api" ;
             
+            this.post('/auth/signup' , signupHandler.bind(this));
+            this.post('/auth/login' , loginHandler.bind(this));
+
             this.get('/products' , getAllProductsHandler.bind(this));
             this.get('/products/:productId' , getSingleProductHandler.bind(this));
 

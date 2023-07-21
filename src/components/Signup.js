@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import Header from './Header'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/common.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
+
+   const navigate = useNavigate();
 
    const [signUpData,setSignUpData] = useState({
       firstName :"",
@@ -13,10 +17,51 @@ const Signup = () => {
       confirmPassword : "",
    });
 
-   const handleSignUp = () => {}
-   const handleSignUpData = () => {}
+   const handleSignUpData = (e) => {
+     setSignUpData((prev) => ({
+       ...prev , [e.target.name] : [e.target.value]
+     }))
+   }
+   
+   const handleTestSignup = () => {
+     setSignUpData({
+       firstName : '',
+       lastName : '',
+       email : '',
+       password : '',
+       confirmPassword : '',  
+      
+      })
+   }
 
-   const handleTestSignup = () => {}
+
+   const handleSignUp = async(e) => {
+     e.preventDefault();
+     if(signUpData.password === signUpData.confirmPassword){
+      try{
+        const response = await axios.post('/api/auth/signup' , {
+           email : signUpData.email,
+           password : signUpData.password,
+           firstName : signUpData.firstName,
+           lastName : signUpData.lastName,
+        });
+        const userData = {
+           email : signUpData.email,
+           firstName : signUpData.firstName,
+           lastName : signUpData.lastName,
+        };
+        localStorage.setItem('token' , response.data.encodedToken);  
+        localStorage.setItem('userData' , JSON.stringify(userData));
+        toast.success(" You have signed inN ");
+        navigate("/");  
+      }catch(error){
+        console.log('signup',error);
+        toast.error(error.message);
+      }
+     }else{
+      toast.error(' Passwords must be Same ');
+     }
+   }
 
   return (
     <>
