@@ -81,7 +81,7 @@ const ProductCard = ({maindata}) => {
 
                    { isIteminWishlist ? (
                         <span style = {{cursor:'pointer',textAlign:'center'}}> 
-                          <button  onClick = {handleremovefromwishlist}>
+                          <button>
                               <AiFillHeart  style = {{color : 'red'}} />
                           </button>
                         </span>
