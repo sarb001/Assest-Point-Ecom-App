@@ -5,8 +5,8 @@ import ProductinCart, { isProductinCart } from '../utils/ProductinCart';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { addToCart } from '../ServiceActions/cartService';
-import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
 import Productinwishlist, { IsproductinWishlist } from '../utils/Productinwishlist';
+import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
 
 
 
@@ -33,7 +33,7 @@ const ProductCard = ({maindata}) => {
     const handleaddtowishlist = () => {
        if(auth.isLoggedIn){
             if(isIteminWishlist){
-                removefromWishlist(maindata,auth.token,cartDispatch);
+                removefromWishlist(maindata._id,auth.token,cartDispatch);
             }else{
                 addtowishlist(maindata,auth.token,cartDispatch);
             }

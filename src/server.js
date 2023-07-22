@@ -63,7 +63,6 @@ export function makeServer(){
 
             this.post('/user/wishlist' , additemtowishlist.bind(this));
             this.delete('/user/wishlist/:productId' , removeitemfromwishlist.bind(this));
-
         }
     })
 }

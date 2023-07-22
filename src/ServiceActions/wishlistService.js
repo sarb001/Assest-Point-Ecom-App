@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-export const additemtowishlistHandler   = async(maindata,token,cartDispatch) => {
+export const addtowishlist   = async(maindata,token,cartDispatch) => {
     try{
         const response = await axios.post('/api/user/wishlist', 
         { maindata } , 
         {headers : {authorization : token }}
     );
-    userDispatch({
+    cartDispatch({
         type : "ADD_TO_WISHLIST",
         payload : response.data.wishlist,
     });
@@ -18,12 +18,12 @@ export const additemtowishlistHandler   = async(maindata,token,cartDispatch) => 
     }
 };
 
-export const removeitemfromwishlistHandler = async(maindata,token,cartDispatch) => {
+export const removefromWishlist = async(productId,token,cartDispatch) => {
     try{
         const response = await axios.delete(`/api/user/wishlist/${productId}`,{
             headers : {authorization : token},
         });
-        userDispatch({
+        cartDispatch({
             type:"REMOVE_FROM_WISHLIST",
             payload : response.data.wishlist,
         });
