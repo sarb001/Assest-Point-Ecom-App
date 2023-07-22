@@ -19,7 +19,7 @@ export const addToCart  = async(maindata,token,cartDispatch) => {
         }
 }
 
-export const removefromcart = (maindata,token,cartDispatch) => {
+export const removefromcart = async(maindata,token,cartDispatch) => {
         try{
 
         }catch(err){

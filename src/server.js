@@ -7,6 +7,7 @@ import { users } from './backend/db/users';
 import { getAllProductsHandler, getSingleProductHandler } from "./backend/Controllers/ProductController";
 import { additemtoCartHandler, getAllCategoriesHandler, getCartItemHandler, removeallitemtfromCartHandler, removeitemfromCartHandler, updateitemfromCartHandler } from "./backend/Controllers/CartController";
 import { loginHandler, signupHandler } from "./backend/Controllers/AuthController";
+import { additemtowishlist, getitemtowishlistHandler, removeitemfromwishlist } from "./backend/Controllers/WishlistController";
 
 
 export function makeServer(){
@@ -45,6 +46,9 @@ export function makeServer(){
 
             this.get('/categories', getAllCategoriesHandler.bind(this));
 
+
+            // cart Routes 
+
             this.get('/user/cart' ,  getCartItemHandler.bind(this));
             this.post('/user/cart' , additemtoCartHandler.bind(this));
 
@@ -52,6 +56,13 @@ export function makeServer(){
             this.delete('/user/cart/:productId' , removeitemfromCartHandler.bind(this));
 
             this.delete('/user/cart' , removeallitemtfromCartHandler.bind(this));
+
+            // Wishlist  Routes 
+
+            this.get('/user/wishlist' , getitemtowishlistHandler.bind(this));
+
+            this.post('/user/wishlist' , additemtowishlist.bind(this));
+            this.delete('/user/wishlist/:productId' , removeitemfromwishlist.bind(this));
 
         }
     })
