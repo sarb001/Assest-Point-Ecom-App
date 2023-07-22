@@ -38,8 +38,8 @@ const Login = () => {
         email  : loginData.email,
         password  : loginData.password,
       });
-      localStorage.setItem('token' , response.data.encodedToken);
-      localStorage.setItem('userData' , response.data.foundUser);
+      localStorage.setItem('token' ,   response.data.encodedToken);
+      localStorage.setItem('userData' ,JSON.stringify(response.data.foundUser));
       setAuth({token : response.data.encodedToken  , isLoggedIn : true})
       toast.success(' You have Logged In ');
       navigate('/');

@@ -1,32 +1,45 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineHeart ,AiFillHeart } from 'react-icons/ai';
 import { isProductinCart } from '../utils/isProductinCart';
 import { isProductinWishlist } from '../utils/isProductinWishlist';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { addToCart } from '../ServiceActions/cartService';
+import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
 
 
 const ProductCard = ({maindata}) => {
 
-    
     const { author ,category ,discount , imgSrc , title , rating ,newPrice , oldPrice } = maindata;
     console.log('maindataa -',maindata);
 
-    const {cartState} = useCart();
+    const {cartState ,cartDispatch} = useCart();
+    const { auth }   =  useAuth();
+    const navigate = useNavigate();
 
-    const isIteminCart  = isProductinCart(maindata._id ,cartState.cart);
-   
+    const isIteminCart      = isProductinCart(maindata._id ,cartState.cart);
     const isIteminWishlist  = isProductinWishlist(maindata._id);
 
     const handleaddtocart = () => { 
-       if(isIteminCart){
-        
+       if(auth.isLoggedIn){
+            addToCart(maindata,auth.token,cartDispatch);
        }else{
-
+            navigate('/login')
        }
     };
-    const handleaddtowishlist = () => { }
-    const handleremovefromwishlist = () => { }
+
+    const handleaddtowishlist = () => {
+       if(auth.isLoggedIn){
+            if(isIteminWishlist){
+                removefromWishlist(maindata,auth.token,cartDispatch);
+            }else{
+                addtowishlist(maindata,auth.token,cartDispatch);
+            }
+       }else{
+          navigate('/login')
+       }
+    }
     
 
   return (
@@ -53,10 +66,6 @@ const ProductCard = ({maindata}) => {
               <div className="addtocart-third-section" style = {{margin:'3%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
                  
 
-                   <button style = {{margin:'1%'}}  onClick = {handleaddtocart} >
-                     Add to Cart
-                    </button>
-
                    {  isIteminCart ? (
                           <Link to = "/cart">
                             <button style = {{margin:'2%'}}  >
@@ -64,7 +73,7 @@ const ProductCard = ({maindata}) => {
                             </button>
                           </Link>
                    ) : (
-                           <button style = {{margin:'1%'}}  >
+                           <button style = {{margin:'1%'}}  onClick = {handleaddtocart} >
                                Add to Cart here   
                             </button>
                    )
