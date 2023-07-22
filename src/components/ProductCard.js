@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineHeart ,AiFillHeart } from 'react-icons/ai';
-import { isProductinCart } from '../utils/isProductinCart';
-import { isProductinWishlist } from '../utils/isProductinWishlist';
+import ProductinCart, { isProductinCart } from '../utils/ProductinCart';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { addToCart } from '../ServiceActions/cartService';
 import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
+import Productinwishlist, { IsproductinWishlist } from '../utils/Productinwishlist';
+
 
 
 const ProductCard = ({maindata}) => {
@@ -18,8 +19,8 @@ const ProductCard = ({maindata}) => {
     const { auth }   =  useAuth();
     const navigate = useNavigate();
 
-    const isIteminCart      = isProductinCart(maindata._id ,cartState.cart);
-    const isIteminWishlist  = isProductinWishlist(maindata._id);
+    const isIteminCart      =  ProductinCart(maindata._id ,cartState.cart);
+    const isIteminWishlist  =  Productinwishlist(maindata._id);
 
     const handleaddtocart = () => { 
        if(auth.isLoggedIn){
