@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-export const additemtowishlistHandler     = async(maindata,token,cartDispatch) => {
+export const additemtowishlistHandler   = async(maindata,token,cartDispatch) => {
     try{
         const response = await axios.post('/api/user/wishlist', 
         { maindata } , 
