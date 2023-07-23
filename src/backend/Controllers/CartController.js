@@ -18,8 +18,7 @@ export const getCartItemHandler = function (schema,request) {
         const  userId = AuthorizingRoute.call(this, request);
         if(!userId){
             new Response(
-                404,
-                {},
+                404,{},
                 {
                   errors: ["The email you entered is not Registered. Not Found error"],
                 }

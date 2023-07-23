@@ -35,7 +35,6 @@ const MenuRoutes = () => {
               <RequireAuth>
                 <Cart />
               </RequireAuth>
-
             }>  
             </Route>
 

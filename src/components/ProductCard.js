@@ -5,9 +5,8 @@ import ProductinCart, { isProductinCart } from '../utils/ProductinCart';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { addToCart } from '../ServiceActions/cartService';
-import Productinwishlist, { IsproductinWishlist } from '../utils/Productinwishlist';
+import Productinwishlist from '../utils/Productinwishlist';
 import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
-
 
 
 const ProductCard = ({maindata}) => {
@@ -67,18 +66,15 @@ const ProductCard = ({maindata}) => {
               <div className="addtocart-third-section" style = {{margin:'3%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
                  
 
-                   {  isIteminCart ? (
-                          <Link to = "/cart">
-                            <button style = {{margin:'2%'}}  >
-                               Go to Cart 
-                            </button>
+                   { isIteminCart ? (
+                          <Link to = "/cart" className='btn btn-icon-text-outline'>
+                               Go to Cart
                           </Link>
                    ) : (
                            <button style = {{margin:'1%'}}  onClick = {handleaddtocart} >
-                               Add to Cart here   
+                               Add to Cart  
                             </button>
-                   )
-                   }
+                   )}
 
                    { isIteminWishlist ? (
                         <span style = {{cursor:'pointer',textAlign:'center'}}> 
@@ -88,15 +84,12 @@ const ProductCard = ({maindata}) => {
                         </span>
                     
                    ) : (
-                  
                         <span style = {{cursor:'pointer',textAlign:'center'}}> 
                         <button onClick = {handleaddtowishlist}>
                           <AiOutlineHeart style = {{color : 'black'}} /> 
                         </button>
                         </span>
-                    
-                   )
-                   }
+                   )}
 
               </div>
 
