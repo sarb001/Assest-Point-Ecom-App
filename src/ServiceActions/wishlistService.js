@@ -1,16 +1,14 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-export const addtowishlist   = async(maindata,token,cartDispatch) => {
+
+export const addtowishlist   = async(maindata,token,setwishlistItems) => {
     try{
         const response = await axios.post('/api/user/wishlist', 
         { maindata } , 
         {headers : {authorization : token }}
     );
-    cartDispatch({
-        type : "ADD_TO_WISHLIST",
-        payload : response.data.wishlist,
-    });
+    setwishlistItems(response.data.wishlist);
     toast.success(" Added to Wishlist ");
     }catch(err){
         console.log('err in posting incart -',err);
@@ -18,15 +16,12 @@ export const addtowishlist   = async(maindata,token,cartDispatch) => {
     }
 };
 
-export const removefromWishlist = async(productId,token,cartDispatch) => {
+export const removefromWishlist = async(productId,token,setwishlistItems) => {
     try{
         const response = await axios.delete(`/api/user/wishlist/${productId}`,{
             headers : {authorization : token},
         });
-        cartDispatch({
-            type:"REMOVE_FROM_WISHLIST",
-            payload : response.data.wishlist,
-        });
+        setwishlistItems(response.data.wishlist);
         toast.success(" Removed from Wishlist ");
     }catch(err){
         console.log('err in Removing incart -',err);

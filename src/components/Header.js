@@ -5,10 +5,12 @@ import { BsFillCartFill } from 'react-icons/bs';
 import {AiOutlineHeart} from 'react-icons/ai'
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { useWishlist } from '../context/WishListContext';
 
 const Header = () => {
 
-   const { cartState , cartDispatch } = useCart();
+   const { cartItems } = useCart();
+   const { wishlistItems }  = useWishlist();
    const { auth }  = useAuth();
 
   return (
@@ -24,12 +26,12 @@ const Header = () => {
                         <span id = "link-one"> 
                         <Link to = "/wishlist"> 
                          <AiOutlineHeart /> 
-                         { auth.isLoggedIn ? cartState.wishlist.length : "0"}
+                         { auth.isLoggedIn ? wishlistItems.length : "0"}
                         </Link> </span>
                         <span id = "link-one">
                            <Link to = "/cart">
                              <BsFillCartFill /> 
-                             { auth.isLoggedIn ? cartState.cart.length : "0"}
+                             { auth.isLoggedIn ? cartItems.length : "0"}
                             </Link> </span>
                      </div>
                 </div>

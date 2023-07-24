@@ -1,22 +1,39 @@
-import { children, createContext, useContext, useReducer ,  } from "react";
+import { children, createContext, useContext, useEffect, useReducer, useState ,} from "react";
 import { CartReducer } from "../Reducers/CartReducer";
+import { useAuth } from "./AuthContext";
+import axios from "axios";
 
 const CartContext = createContext();
 
-const initialState = {
-    wishlist : [],
-    cart : [],
-    order : [],
-    totalItems : 0,
-    totalPrice : 0,
-    amountPaid : 0
-}
+
 
 const CartProvider = ({children}) => {
-    const [cartState,cartDispatch] = useReducer(CartReducer ,initialState);
+
+     const [cartItems,setcartItems] = useState([]);
+     const { auth } = useAuth();
+     const { token }  = useAuth();
+
+    useEffect(() => {
+        if(token){
+            (async () => {
+                try{
+                     const response = await axios.get('/api/user/cart' , {
+                        headers : {  authorization : token },
+                     });
+                     if(response.status === 200){
+                         setcartItems(response.data.cart);
+                     }
+                }catch(error){
+                    console.log('error ');
+                }
+            })();
+        }else{
+             setcartItems([]);
+        }  
+    },[token])
 
     return (
-        <CartContext.Provider value = {{cartState,cartDispatch}}>
+        <CartContext.Provider value = {{cartItems,setcartItems}}>
             {children}
         </CartContext.Provider>
     )
@@ -24,4 +41,4 @@ const CartProvider = ({children}) => {
 
 const useCart = () => useContext(CartContext);
 
-export { CartProvider ,useCart }
+export { CartProvider ,useCart };

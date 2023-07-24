@@ -7,23 +7,24 @@ import { useAuth } from '../context/AuthContext';
 import { addToCart } from '../ServiceActions/cartService';
 import Productinwishlist from '../utils/Productinwishlist';
 import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
-
+import { useWishlist } from '../context/WishListContext';
 
 const ProductCard = ({maindata}) => {
 
     const { author ,category ,discount , imgSrc , title , rating ,newPrice , oldPrice } = maindata;
     console.log('maindataa -',maindata);
 
-    const {cartState ,cartDispatch} = useCart();
+    const {cartItems ,setcartItems} = useCart();
+    const { wishlistItems , setwishlistItems} = useWishlist();
     const { auth }   =  useAuth();
     const navigate = useNavigate();
 
-    const isIteminCart      =  ProductinCart(maindata._id ,cartState.cart);
+    const isIteminCart      =  ProductinCart(maindata._id ,cartItems);
     const isIteminWishlist  =  Productinwishlist(maindata._id);
 
     const handleaddtocart = () => { 
        if(auth.isLoggedIn){
-            addToCart(maindata,auth.token,cartDispatch);
+            addToCart(maindata,auth.token,setcartItems);
        }else{
             navigate('/login')
        }
@@ -32,9 +33,9 @@ const ProductCard = ({maindata}) => {
     const handleaddtowishlist = () => {
        if(auth.isLoggedIn){
             if(isIteminWishlist){
-                removefromWishlist(maindata._id,auth.token,cartDispatch);
+                removefromWishlist(maindata._id,auth.token,setwishlistItems);
             }else{
-                addtowishlist(maindata,auth.token,cartDispatch);
+                addtowishlist(maindata,auth.token,setwishlistItems);
             }
        }else{
           navigate('/login')
