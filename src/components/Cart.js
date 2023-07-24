@@ -9,6 +9,7 @@ const Cart = () => {
 
    const { cartItems ,totalItems ,totalPrice  } = useCart();
    console.log('Data in cart here  -',cartItems);
+  //  console.log('Data in setcart here  -',productListing);
 
    const discount = 30 * totalItems;
    let deliveryCharge = totalPrice >= 500 ? 0: 100;
@@ -22,7 +23,7 @@ const Cart = () => {
     <div className="cart-controller">
        <Header />
 
-       {cartItems.length  > 0 ? ( 
+       {cartItems.length === 0 ? ( 
         <>
           Cart with no Length
            <CartLoader /> 
@@ -33,10 +34,11 @@ const Cart = () => {
            Items are   
              {cartItems?.map((item) => {
                  return (
-                  <>
-                   <h3> item is - {item.title} </h3>
-                   <h3> item is - {item._id} </h3>
-                  </>
+                    <div className="cart-items" key = {item._id}>
+                      <h3> item Title  is - {item.title} </h3>
+                      <h3> item ID  is - {item._id} </h3>
+                      <h3> quantity is  - {item.qty} </h3>
+                    </div>
                  )
              }
              )}

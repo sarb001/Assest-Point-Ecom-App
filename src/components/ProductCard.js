@@ -93,7 +93,6 @@ const ProductCard = ({maindata}) => {
                    )}
 
               </div>
-
            </div>
       </div>
     </>

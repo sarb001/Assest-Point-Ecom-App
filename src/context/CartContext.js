@@ -5,8 +5,6 @@ import axios from "axios";
 
 const CartContext = createContext();
 
-
-
 const CartProvider = ({children}) => {
 
      const [cartItems,setcartItems] = useState([]);

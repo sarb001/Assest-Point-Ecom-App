@@ -52,7 +52,7 @@ export const additemtoCartHandler = function (schema,request) {
             qty : 1,
         })
         this.db.users.update({_id : userId} ,{cart : userCart});
-        return new Response(200,{},{cart : userCart});
+        return new Response(201,{},{cart : userCart});
         
     }catch(error){
         return new Response(500 , {} , {

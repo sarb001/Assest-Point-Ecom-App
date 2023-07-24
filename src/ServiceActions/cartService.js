@@ -1,13 +1,14 @@
 import  axios from  'axios';
 import { toast } from 'react-toastify';
 
-export const addToCart  = async(maindata,token,setcartItems) => {
+export const addToCart  = async(product,token,setcartItems) => {
+    
         try{
             const response = await axios.post('/api/user/cart' ,
-             {maindata} , 
+             {product} , 
              {headers : { authorization : token }}
             );
-            console.log('add to cart -',response);
+            console.log('add to cart here -',response);
              setcartItems(response.data.cart);
             toast.success(" Added to Cart ");
         }catch(err){
