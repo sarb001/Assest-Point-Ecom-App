@@ -16,7 +16,7 @@ export const addToCart  = async(maindata,token,setcartItems) => {
         }
 }
 
-export const removefromcart = async(maindata,token,setcartItems) => {
+export const removefromcart = async(id,token,setcartItems) => {
         try{
                 const response = await axios.delete(`/api/user/cart/${id}` , {
                     headers : {  authorization :token },
