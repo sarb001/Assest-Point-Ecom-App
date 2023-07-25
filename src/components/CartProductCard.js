@@ -1,14 +1,30 @@
 import React from 'react'
+import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
+import { decrementproduct, incrementproduct } from '../ServiceActions/cartService';
 
 const CartProductCard = ({maindata}) => {
     const {imgSrc, title, author, oldPrice, newPrice, discount, qty } = maindata;
+    const { auth } = useAuth();
+    const {  cartItems , setcartItems } = useCart();
+
 
      let isAddedToWishList = 'fff';
 
     const handleWishlist = () => {}
-    const handleProductDecrement = () => {}
-    const handleProductIncrement = () => {}
-    const handleRemoveFromCart   = () => {}
+    const handleRemoveFromCart   = () => {
+       
+    }
+
+    const handleProductDecrement = () => {
+      if(qty >= 2 ){
+        decrementproduct(maindata,auth.token,setcartItems);
+      }
+      }
+
+      const handleProductIncrement = () => {
+        incrementproduct(maindata,auth.token,setcartItems);
+    }
 
   return (
     <>
@@ -33,17 +49,14 @@ const CartProductCard = ({maindata}) => {
         </div>
         <div className="quantity-ctn">
 
-          <button style = {{padding:'1%'}} onClick = {handleProductDecrement}> Remove </button>
+          <button style = {{padding:'1%'}} onClick = {handleProductDecrement}> Remove -- </button>
 
           <span className="quantity" style = {{padding:'3%'}}>{qty}</span>
-          <button  style = {{padding:'1%'}} onClick = {handleProductIncrement}> Add  </button>
+          <button  style = {{padding:'1%'}} onClick = {handleProductIncrement}> Add ++ </button>
             
         </div>
-
-                <button
-                className="btn btn-icon-text-outline"
-                onClick={handleRemoveFromCart}
-                >
+                <button className="btn btn-icon-text-outline"
+                onClick={handleRemoveFromCart} >
                 Remove from Cart
                 </button>
       </div>

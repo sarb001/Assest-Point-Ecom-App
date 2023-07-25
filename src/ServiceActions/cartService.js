@@ -29,3 +29,35 @@ export const removefromcart = async(id,token,setcartItems) => {
             toast.error(err.message);
         }
 };
+
+export const incrementproduct = async(maindata,token,setcartItems) => {
+    try{
+         const response = await axios.post(`/api/user/cart/${maindata._id}` , {
+                action : { type : "INCREMENT" },
+         },
+         {
+            headers : {  authorization :token },
+         })
+         setcartItems(response.data.cart);
+         toast.success(' Increased Product Quantity ');
+    }catch(err){
+        console.log('err in updating items - ',err);
+        toast.error(err.message)
+    }
+}
+
+export const decrementproduct = async (maindata,token,setcartItems) => {
+    try{
+        const response = await axios.post(`/api/user/cart/${maindata._id}` , {
+               action : { type : "DECREMENT" },
+        },
+        {
+           headers : {  authorization :token },
+        })
+        setcartItems(response.data.cart);
+        toast.success(' Decreased Product Quantity ');
+   }catch(err){
+       console.log('err in updating items - ',err);
+       toast.error(err.message)
+   }
+}

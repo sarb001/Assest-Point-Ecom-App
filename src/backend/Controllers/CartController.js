@@ -119,6 +119,7 @@ export const removeallitemtfromCartHandler = function(schema,request)  {
 
 
 export const updateitemfromCartHandler = function(schema,request){
+
     const  userId = AuthorizingRoute.call(this, request);
     try{
       if(!userId){
@@ -131,6 +132,26 @@ export const updateitemfromCartHandler = function(schema,request){
           );
         } 
 
+        const productId = request.params.productId;
+        let userCart = schema.users.findBy({ _id : userId }).cart;
+        const { action } = JSON.parse(request.requestBody);
+        if(action.type === "INCREMENT"){
+            userCart.forEach((product) => {
+                if(product._id === productId){
+                    product.qty +=1;
+                    product.updatedAt = formatDate();
+                }
+            })
+        }else if (action.type === "DECREMENT"){
+             userCart.forEach((product) => {
+                 if(product._id === productId){
+                    product.qty -= 1;
+                    product.updatedAt = formatDate();
+                 }
+             })
+        }
+        this.db.users.update({_id : userId } , {cart : userCart });
+        return  new Response(200,{}, {cart : userCart});
 
     }catch(error){
         return new Response(500, {} ,{
