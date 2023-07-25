@@ -33,10 +33,10 @@ const CartProductCard = ({maindata}) => {
         </div>
         <div className="quantity-ctn">
 
-          <button onClick = {handleProductDecrement}> Remove </button>
+          <button style = {{padding:'1%'}} onClick = {handleProductDecrement}> Remove </button>
 
           <span className="quantity" style = {{padding:'3%'}}>{qty}</span>
-          <button onClick = {handleProductIncrement}> Add  </button>
+          <button  style = {{padding:'1%'}} onClick = {handleProductIncrement}> Add  </button>
             
         </div>
 

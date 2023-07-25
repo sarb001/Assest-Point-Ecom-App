@@ -72,8 +72,8 @@ const ProductCard = ({maindata}) => {
                                Go to Cart
                           </Link>
                    ) : (
-                           <button style = {{margin:'1%'}}  onClick = {handleaddtocart} >
-                               Add to Cart  
+                           <button  onClick = {handleaddtocart} >
+                               ADD  to Cart  
                             </button>
                    )}
 

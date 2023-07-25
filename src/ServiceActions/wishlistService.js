@@ -2,10 +2,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 
-export const addtowishlist   = async(maindata,token,setwishlistItems) => {
+export const addtowishlist   = async(product,token,setwishlistItems) => {
     try{
         const response = await axios.post('/api/user/wishlist', 
-        { maindata } , 
+        { product } , 
         {headers : {authorization : token }}
     );
     setwishlistItems(response.data.wishlist);

@@ -5,14 +5,13 @@ import { useWishlist } from '../context/WishListContext'
 import { useAuth } from '../context/AuthContext'
 import CartLoader from './CartLoader'
 import ProductCard from './ProductCard'
+import WishlistProductCard from './WishlistProductCard'
 
 const Wishlist = () => {
 
    const { wishlistItems  ,setwishlistItems } = useWishlist();
    const { auth }   = useAuth();
    const { token }  = useAuth();
-
-
 
   return (
   
@@ -30,7 +29,7 @@ const Wishlist = () => {
                   {wishlistItems?.map((item) => {
                      return (
                          <div className="items" key = {item.id} >
-                             <ProductCard   maindata = {item}  />
+                             <WishlistProductCard   maindata = {item}  />
                          </div>
                      )
                   })}
