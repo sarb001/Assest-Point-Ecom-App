@@ -25,5 +25,20 @@ export const CartReducer = (state,action) => {
              ...state ,
              wishlist : action.payload ,
         }
+        case "INCREMENT_PRODUCT":
+            return {
+                ...state,
+                cart : action.payload.cart,
+                totalItems : state.totalItems + 1,
+                totalPrice : state.totalPrice + action.payload.price,
+            }
+            
+        case "DECREMENT_PRODUCT" : 
+        return {
+            ...state,
+            cart : action.payload.cart,
+            totalItems : state.totalItems - 1,
+            totalPrice : state.totalPrice - action.payload.price,
+        }
     }
 }

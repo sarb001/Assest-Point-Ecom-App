@@ -119,5 +119,22 @@ export const removeallitemtfromCartHandler = function(schema,request)  {
 
 
 export const updateitemfromCartHandler = function(schema,request){
+    const  userId = AuthorizingRoute.call(this, request);
+    try{
+      if(!userId){
+        new Response(
+            404,
+            {},
+            {
+              errors: ["The email you entered is not Registered. Not Found error"],
+            }
+          );
+        } 
 
+
+    }catch(error){
+        return new Response(500, {} ,{
+            error,
+        })
+    } 
 }

@@ -31,7 +31,6 @@ const Cart = () => {
         </>
        ) :(
         <>
-
             Cart  Items are  -  
              {cartItems?.map((item) => {
                  return (

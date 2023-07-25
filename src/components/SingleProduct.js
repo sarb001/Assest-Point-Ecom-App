@@ -8,6 +8,7 @@ import { useAuth } from '../context/AuthContext';
 import { addToCart } from '../ServiceActions/cartService';
 import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
 import Productinwishlist from '../utils/Productinwishlist';
+import { useWishlist } from '../context/WishListContext';
 
 const SingleProduct = () => {
 
@@ -16,8 +17,8 @@ const SingleProduct = () => {
     const params = useParams();
     const { auth } = useAuth();
     const { cartItems , setcartItems } =  useCart();
+    const { wishlistItems , setwishlistItems } =  useWishlist();
     const navigate = useNavigate();
-
 
     useEffect(() => {
         (async () => {
@@ -36,12 +37,12 @@ const SingleProduct = () => {
     let addedtoWishlist = product && Productinwishlist(product._id);
 
     const handleRemoveFromWishList = () => {
-        removefromWishlist(product._id , auth.token ,cartItems);
+        removefromWishlist(product._id , auth.token ,setwishlistItems);
     }
 
     const handleAddToWishList = () => {
         if(auth.isLoggedIn){
-            addtowishlist(product,auth.token,cartItems);
+            addtowishlist(product,auth.token,setwishlistItems);
         }else{
             navigate('/login');
         }
@@ -50,7 +51,7 @@ const SingleProduct = () => {
 
     const handleAddToCart = () => {
         if(auth.isLoggedIn){
-            addToCart(product,auth.token,cartItems);
+            addToCart(product,auth.token,setcartItems);
         }else{
             navigate('/login');
         }
