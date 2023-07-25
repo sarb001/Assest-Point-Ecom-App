@@ -17,6 +17,8 @@ const Products = () => {
     const [Loader,setLoader] = useState(true);
     const {state,dispatch} = useProduct();
 
+
+
     useEffect(()  => {
         (async () => {
           try {
@@ -29,16 +31,16 @@ const Products = () => {
             console.log('error is -',error);
           }
         })()
-    },[])
+    },[]);
 
     const productsbyPrice    = getProductsbyPrice(Products,state.price);
-    console.log('productsby Price -',productsbyPrice);
+    // console.log('productsby Price -',productsbyPrice);
     
     const productsbyCategory = getProductsbyCategory(productsbyPrice,state.category);
-    console.log('productsby Category  -',productsbyCategory);
+    // console.log('productsby Category  -',productsbyCategory);
     
     const productsbyRating   = getProductsbyRating(productsbyCategory,state.rating);
-    console.log('productsby Rating -',productsbyRating);
+    // console.log('productsby Rating -',productsbyRating);
     
     const finalproducts      = getProductsBySort(productsbyRating,state.sortBy);
 

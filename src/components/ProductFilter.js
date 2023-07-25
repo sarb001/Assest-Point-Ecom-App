@@ -31,7 +31,7 @@ const ProductFilter = () => {
                 isChecked : category.realEstate,
                 actionType : "REAL_ESTATE",
             },
-        ]
+         ]
     
          const ratingData = [
         {
@@ -54,7 +54,7 @@ const ProductFilter = () => {
             label : '1 stars & above',
             star : 1
         },
-    ]
+         ]
 
   return (
     <>

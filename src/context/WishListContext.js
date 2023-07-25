@@ -2,8 +2,8 @@ import  { createContext, useContext, useEffect, useState }  from 'react' ;
 import  axios from 'axios' ;
 import { useAuth } from './AuthContext';
 
-
 const WishlistContext = createContext();
+
 const WishlistProvider = ({children}) => {
 
     const [wishlistItems,setwishlistItems] = useState([]);

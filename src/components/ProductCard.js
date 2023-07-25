@@ -77,6 +77,8 @@ const ProductCard = ({maindata}) => {
                             </button>
                    )}
 
+
+
                    { isIteminWishlist ? (
                         <span style = {{cursor:'pointer',textAlign:'center'}}> 
                           <button>
