@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Header from './Header';
 import axios from 'axios' ;
+import ProductinCart from '../utils/ProductinCart';
+import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { addToCart } from '../ServiceActions/cartService';
+import { addtowishlist, removefromWishlist } from '../ServiceActions/wishlistService';
+import Productinwishlist from '../utils/Productinwishlist';
 
 const SingleProduct = () => {
 
     const [product,setProduct] = useState({});
     const [loader,setLoader] = useState(true);
     const params = useParams();
+    const { auth } = useAuth();
+    const { cartItems , setcartItems } =  useCart();
+    const navigate = useNavigate();
+
 
     useEffect(() => {
-
         (async () => {
             try{
                 const response = await axios.get(`/api/products/${params.productId}`);
@@ -23,11 +32,29 @@ const SingleProduct = () => {
         })();
     },[params.productId])
 
-    const handleRemoveFromWishList = () => {}
-    const handleAddToWishList = () => {}
-    const handleAddToCart = () => {}
-    
+    let currentIteminCart =   product &&  ProductinCart(product._id,cartItems);
+    let addedtoWishlist = product && Productinwishlist(product._id);
 
+    const handleRemoveFromWishList = () => {
+        removefromWishlist(product._id , auth.token ,cartItems);
+    }
+
+    const handleAddToWishList = () => {
+        if(auth.isLoggedIn){
+            addtowishlist(product,auth.token,cartItems);
+        }else{
+            navigate('/login');
+        }
+    }
+
+
+    const handleAddToCart = () => {
+        if(auth.isLoggedIn){
+            addToCart(product,auth.token,cartItems);
+        }else{
+            navigate('/login');
+        }
+    }
 
 
   return (
@@ -61,28 +88,38 @@ const SingleProduct = () => {
                         <p className="price-discount">({product.discount}% off)</p>
                         </div>
                         <p>inclusive of all taxes</p>
-                        <div className="cta-btns" style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
-                        
-                            <span>
-                                <button style = {{padding:'2%'}}
-                                className="btn btn-icon-text" onClick={handleAddToCart}>
-                                {/* <span className="material-icons">shopping_cart</span> */}
-                                    Add to cart
-                                </button>
-                            </span>
-                           
-                            
 
-                            <span>
-                                <button style = {{padding:'2%'}}
-                                className="btn btn-icon-text-outline"
-                                onClick={handleAddToWishList}>
-                                {/* <span className="material-icons">favorite_border</span> */}
-                                Add to wishlist
+                        <div className="cta-btns" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',columnGap:'30px'}}>
+                            
+                            {  currentIteminCart ? (
+                                <>
+                                    <Link to = "/cart" href = "#" className = "btn btn-icon-text-outline">
+                                     Go to Cart 
+                                    </Link>
+                                </>
+                            ) : (
+                                <button className = "btn btn-icon-text" onClick = {handleAddToCart}>
+                                    Add to cart 
                                 </button>
-                            </span>
-                           
-                        
+                             )
+                            }
+
+                            {/*  For Wishlist  */}
+
+                            { addedtoWishlist ? (
+                            <>
+                                 <button    className='btn btn-icon-text-outline'   onClick = {handleRemoveFromWishList}>
+                                  Added to Wishlist 
+                                 </button>
+                            </>) : (
+                                <>
+                                    <button  onClick={handleAddToWishList}   className='btn btn-icon-text-outline' >
+                                       Add to WishList 
+                                    </button>
+                                </>
+                            )
+                            }
+                            
                         </div>
                     </div>
                 </div>

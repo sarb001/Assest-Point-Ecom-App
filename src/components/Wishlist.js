@@ -21,9 +21,11 @@ const Wishlist = () => {
           <div className="wishlist-items">
              {wishlistItems.length == 0 ? (
              <>
-               Not Items in WishList
-               <CartLoader />
-             </>) : 
+                <div className="wishlist-msg" style = {{textAlign:'center'}}>
+                   <h2>  WishList is Empty </h2>
+                </div>
+             </>
+             ) : 
              (
              <>
                   {wishlistItems?.map((item) => {

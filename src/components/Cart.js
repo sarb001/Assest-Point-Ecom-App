@@ -25,8 +25,9 @@ const Cart = () => {
 
        {cartItems.length === 0 ? ( 
         <>
-          Cart with no Length
-           <CartLoader /> 
+            <div className="cart-msg" style = {{textAlign:'center'}}>
+              <h2> Cart is Empty </h2>
+            </div>
         </>
        ) :(
         <>
