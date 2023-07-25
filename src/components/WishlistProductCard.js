@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ProductinCart from '../utils/ProductinCart';
 
 const WishlistProductCard = ({maindata}) => {
     
     console.log('maindata in wishcard -',maindata);
   const {imgSrc, title, author, oldPrice, newPrice, discount} = maindata;
 
-  let isAddedToCart = "df";
+  let isAddedToCart = ProductinCart(maindata._id , )
   const handleRemoveWishlist = () => {}
   const handleMoveToCart = () => {}
 

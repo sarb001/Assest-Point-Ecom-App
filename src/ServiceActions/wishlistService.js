@@ -17,10 +17,12 @@ export const addtowishlist   = async(product,token,setwishlistItems) => {
 };
 
 export const removefromWishlist = async(productId,token,setwishlistItems) => {
+    console.log('product Id in remove -',productId);
     try{
         const response = await axios.delete(`/api/user/wishlist/${productId}`,{
             headers : {authorization : token},
         });
+        console.log('response in remove list -',response);
         setwishlistItems(response.data.wishlist);
         toast.success(" Removed from Wishlist ");
     }catch(err){

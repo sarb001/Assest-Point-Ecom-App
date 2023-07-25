@@ -22,13 +22,17 @@ const ProductCard = ({maindata}) => {
     const isIteminCart      =  ProductinCart(maindata._id ,cartItems);
     const isIteminWishlist  =  Productinwishlist(maindata._id);
 
+     console.log('item in Cart is  -',isIteminCart);
+     console.log('item in Wishlist -',isIteminWishlist);
+
     const handleaddtocart = () => { 
        if(auth.isLoggedIn){
             addToCart(maindata,auth.token,setcartItems);
        }else{
             navigate('/login')
        }
-    };
+    }
+
 
     const handleaddtowishlist = () => {
        if(auth.isLoggedIn){
@@ -46,7 +50,6 @@ const ProductCard = ({maindata}) => {
   return (
     <>   
       <div className="product-container">
-
            <div className="product-section" style = {{backgroundColor:'lightsalmon',margin:'3%',width:'75%',color:'black'}}>
 
         <Link to = {`/product/${maindata._id}`} style = {{textDecoration:'none'}}>
@@ -65,7 +68,6 @@ const ProductCard = ({maindata}) => {
               </div>
 
               <div className="addtocart-third-section" style = {{margin:'3%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
-                 
 
                    { isIteminCart ? (
                           <Link to = "/cart" className='btn btn-icon-text-outline'>
@@ -77,11 +79,9 @@ const ProductCard = ({maindata}) => {
                             </button>
                    )}
 
-
-
                    { isIteminWishlist ? (
                         <span style = {{cursor:'pointer',textAlign:'center'}}> 
-                          <button>
+                          <button onClick = {handleaddtowishlist}>
                               <AiFillHeart  style = {{color : 'red'}} />
                           </button>
                         </span>

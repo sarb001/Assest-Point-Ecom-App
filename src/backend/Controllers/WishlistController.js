@@ -60,12 +60,14 @@ export const removeitemfromwishlist = function(schema,request){
                         }
                     );
                 }
-        const userwishlist = schema.users.findBy({ _id : userId}).wishlist;
+        let userwishlist = schema.users.findBy({ _id : userId}).wishlist;
         const productId = request.params.productId;
         userwishlist = userwishlist.filter((item) => item._id !==  productId);
         this.db.users.update({ _id : userId } , { wishlist : userwishlist });
         return new Response(200 , {} , { wishlist : userwishlist });
+        
     }catch(error){
+        console.log('error in backend --',error);
         return new Response(500 , {} , {
             error,
         })
