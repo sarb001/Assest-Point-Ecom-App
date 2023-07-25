@@ -17,11 +17,12 @@ export const addToCart  = async(product,token,setcartItems) => {
         }
 }
 
-export const removefromcart = async(id,token,setcartItems) => {
+export const removefromcart = async(product,token,setcartItems) => {
         try{
-                const response = await axios.delete(`/api/user/cart/${id}` , {
+                const response = await axios.delete(`/api/user/cart/${product._id}` , {
                     headers : {  authorization :token },
                 });
+                console.log('reponse in removecart -',response);
                 setcartItems(response.data.cart);
                 toast.success(" Removed From Cart ");
         }catch(err){

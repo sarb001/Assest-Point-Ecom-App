@@ -1,19 +1,15 @@
 import React from 'react'
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { decrementproduct, incrementproduct } from '../ServiceActions/cartService';
+import { decrementproduct, incrementproduct, removefromcart } from '../ServiceActions/cartService';
 
 const CartProductCard = ({maindata}) => {
     const {imgSrc, title, author, oldPrice, newPrice, discount, qty } = maindata;
     const { auth } = useAuth();
     const {  cartItems , setcartItems } = useCart();
 
-
-     let isAddedToWishList = 'fff';
-
-    const handleWishlist = () => {}
     const handleRemoveFromCart   = () => {
-       
+         removefromcart(maindata,auth.token,setcartItems);
     }
 
     const handleProductDecrement = () => {
@@ -32,14 +28,6 @@ const CartProductCard = ({maindata}) => {
       <div className="horizontal-txt pd-xs">
         <div className="card-title">
           <h4>{title}</h4>
-          <span
-            className={
-              isAddedToWishList ? "material-icons wishlist" : "material-icons"
-            }
-            onClick={handleWishlist}
-          >
-            favorite
-          </span>
         </div>
         <p className="card-subtitle">{author}</p>
         <div className="card-pricing">
