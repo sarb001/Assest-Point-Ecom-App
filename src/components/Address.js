@@ -2,9 +2,11 @@ import React from 'react'
 
 const Address = () => {
   return (
-  <>
-            <h2> Address  </h2>
-  </>
+    <>
+        <div className="address-container">
+             <h3> Address here - </h3>
+        </div>
+    </>
   )
 }
 
