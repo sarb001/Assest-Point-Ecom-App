@@ -30,16 +30,52 @@ const Cart = () => {
             </div>
         </>
        ) :(
-        <>
-            Cart  Items are  -  
-             {cartItems?.map((item) => {
-                 return (
-                    <div className = "cart-items"  key = {item._id} >
-                       <CartProductCard  maindata = {item}   />
-                    </div>
-                 )
-             }
-             )}
+        <>  
+             <div className="cart-container" style = {{display:'grid',gridTemplateColumns:'2fr 1fr',margin:'4%'}}>
+
+                <div className="cart-item" style = {{padding:'3%'}}>
+                     {cartItems?.map((item) => {
+                        return (
+                           <div className = "cart-items"  key = {item._id} >
+                              <CartProductCard  maindata = {item}   />
+                           </div>
+                        )
+                     }
+                     )}
+               </div>  
+
+                 <div className="total-items" style = {{padding:'4%'}}>
+
+                     <div className="price-ctn br-sm">
+                        <h3 className="text-center text-border">Price Details</h3>
+                        <div className="price-row">
+                           <p>Price ({totalItems} items)</p>
+                           <p>₹{totalPrice}</p>
+                        </div>
+                        <div className="price-row">
+                           <p>Discount</p>
+                           <p>- ₹{discount}</p>
+                        </div>
+                        <div className="price-row">
+                           <p>Delivery charges</p>
+                           <p>₹{deliveryCharge}</p>
+                        </div>
+                        <div className="price-row text-border fw-bold">
+                           <p>Total Price</p>
+                           <p>₹{amountPaid}</p>
+                        </div>
+                        <div className="order-btn">
+                           <button
+                              className="btn btn-primary text-center width-full"
+                              onClick={handleProceedToBuy}
+                           >
+                              Proceed to Payment
+                           </button>
+                        </div>
+                     </div>
+
+                </div>
+         </div>
         </>
        )}
            
