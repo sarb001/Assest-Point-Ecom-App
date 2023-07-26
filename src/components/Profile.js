@@ -1,12 +1,9 @@
 import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
 
-export const Profile = () => {
+const Profile = () => {
   return (
-    <>
-       <Header />
-       <Footer />
-    </>
+    <div>Profile</div>
   )
 }
+
+export default Profile

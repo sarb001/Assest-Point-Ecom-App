@@ -9,7 +9,7 @@ import Home from './Home'
 import PageNotFound from './PageNotFound'
 import Order from './Order'
 import Checkout from './Checkout'
-import { Profile } from './Profile'
+import UserProfile, { Profile } from './UserProfile'
 import SingleProduct from './SingleProduct'
 import   { RequireAuth }  from '../components/RequireAuth';
 
@@ -26,7 +26,7 @@ const MenuRoutes = () => {
             
             <Route path = '/profile'  element   = { 
               <RequireAuth>
-                <Profile  />
+                <UserProfile  />
               </RequireAuth>
             }> 
             </Route>
