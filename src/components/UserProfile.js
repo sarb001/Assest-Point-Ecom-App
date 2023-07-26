@@ -12,18 +12,16 @@ const UserProfile = () => {
   return (
     <>
        <Header />
-          <div className="user-profile">
-              <button  onClick={() => setactiveTab('Profile')}  > Profile </button>
-              <button  onClick={() => setactiveTab('Setting')}  > Setting  </button>
-              <button  onClick={() => setactiveTab('Address')}  > Address  </button>
-          </div>
-
-              { (activeTab === 'Setting') && <Setting /> }
-
-              { (activeTab === 'Profile') && <Profile /> }
-
-              { (activeTab === 'Address') && <Address /> }
-
+              <div className="userprofile-section" style = {{textAlign:'center',marginTop:'3%'}}>
+                  <div className="userprofile-buttons" >
+                      <button style = {{padding:'0.5% 3%'}} onClick={() => setactiveTab('Profile')}  > Profile </button>
+                      <button style = {{padding:'0.5% 3%'}} onClick={() => setactiveTab('Setting')}  > Setting  </button>
+                      <button style = {{padding:'0.5% 3%'}} onClick={() => setactiveTab('Address')}  > Address  </button>
+                  </div>
+                    { (activeTab === 'Setting') && <Setting /> }
+                    { (activeTab === 'Profile') && <Profile /> }
+                    { (activeTab === 'Address') && <Address /> }
+                  </div>
        <Footer />
     </>
   )
