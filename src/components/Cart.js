@@ -31,12 +31,12 @@ const Cart = () => {
         </>
        ) :(
         <>  
-             <div className="cart-container" style = {{display:'grid',gridTemplateColumns:'2fr 1fr',margin:'4%'}}>
+             <div className="cart-container" style = {{display:'grid',gridTemplateColumns:'2fr 1fr',margin:'2%'}}>
 
                 <div className="cart-item" style = {{padding:'3%'}}>
                      {cartItems?.map((item) => {
                         return (
-                           <div className = "cart-items"  key = {item._id} >
+                           <div className = "cart-items" style = {{padding:'5% 2%'}} key = {item._id} >
                               <CartProductCard  maindata = {item}   />
                            </div>
                         )

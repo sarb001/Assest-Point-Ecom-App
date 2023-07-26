@@ -24,31 +24,38 @@ const CartProductCard = ({maindata}) => {
 
   return (
     <>
-      <div className="cartproduct-container">
-          <img src={imgSrc} alt="product-image" className="docs-hor-card-img"  style = {{width:'10%'}}  />
-          <div className="horizontal-txt pd-xs">
-            <div className="card-title">
-              <h4>{title}</h4>
-            </div>
-            <p className="card-subtitle">{author}</p>
-            <div className="card-pricing">
-              <p className="card-price fw-bold">₹{newPrice}</p>
-              <p className="card-price-cut">₹{oldPrice}</p>
-              <p className="card-price-discount">({discount}% off)</p>
-            </div>
-            <div className="quantity-ctn">
+      <div className="cartproduct-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr' ,backgroundColor:'rebeccapurple'}}>
+           <div className="image-container" style = {{textAlign:'center'}}>
+              <img src={imgSrc} alt="product-image" className="docs-hor-card-img"  style = {{width:'50%',padding:'4% 1%'}}  />
+           </div>
 
-              <button style = {{padding:'1%'}} onClick = {handleProductDecrement}> Remove -- </button>
+             <div className="item-details" style = {{color:'white'}}>
+                <div className="horizontal-txt pd-xs">
+                    <div className="card-title">
+                      <h4>{title}</h4>
+                    </div>
+                  <p className="card-subtitle">{author}</p>
 
-              <span className="quantity" style = {{padding:'3%'}}>{qty}</span>
-              <button  style = {{padding:'1%'}} onClick = {handleProductIncrement}> Add ++ </button>
-                
+                  <div className="card-pricing">
+                    <p className="card-price fw-bold">₹{newPrice}</p>
+                    <p className="card-price-cut">₹{oldPrice}</p>
+                    <p className="card-price-discount">({discount}% off)</p>
+                  </div>
+
+                    <div className="quantity-ctn">
+                      <button style = {{padding:'2% 4%'}} onClick = {handleProductDecrement}>  <b> - </b> </button>
+
+                      <span className="quantity" style = {{padding:'3%',color:'white'}}>{qty}</span>
+                      <button  style = {{padding:'2% 4%'}} onClick = {handleProductIncrement}>  <b> + </b>   </button>
+                        
+                    </div>
+                     <span style = {{paddingTop:'6%'}}>
+                          <button style = {{padding:'3%'}} onClick={handleRemoveFromCart} >
+                          Remove from Cart
+                          </button>
+                      </span>
+                </div>
             </div>
-                    <button className="btn btn-icon-text-outline"
-                    onClick={handleRemoveFromCart} >
-                    Remove from Cart
-                    </button>
-          </div>
       </div>
     </>
   )
