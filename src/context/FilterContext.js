@@ -33,3 +33,5 @@ const FilterProvider = ({children}) => {
 }
 
 const useFilter = () => useContext(FilterContext);
+
+export { useFilter , FilterProvider }

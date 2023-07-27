@@ -10,7 +10,6 @@ const WishlistProvider = ({children}) => {
     const { auth }   = useAuth();
     const { token }  = useAuth();
 
-
     useEffect(() => {
         if(token){
             (async () => {

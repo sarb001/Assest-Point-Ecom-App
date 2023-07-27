@@ -5,16 +5,22 @@ import { useCart } from '../context/CartContext'
 import ProductCard from './ProductCard'
 import CartLoader from './CartLoader'
 import CartProductCard from './CartProductCard'
+import { useFilter } from '../context/FilterContext'
 
 const Cart = () => {
 
-   const { cartItems ,totalItems ,totalPrice  } = useCart();
+   const { cartItems } = useCart();
    console.log('Data in cart here  -',cartItems);
 
-   const discount = 30 * totalItems;
-   let deliveryCharge = totalPrice >= 500 ? 0: 100;
-   let amountPaid  = totalPrice + deliveryCharge - discount;
+   const totalOldPrice = cartItems.reduce((acc,current) => acc + current.oldPrice * current.qty, 0)
+   const totalPrice = cartItems.reduce((acc,current) => acc + current.newPrice * current.qty,0);
 
+   let Discount  = 30 * cartItems.length;
+   let deliveryCharge = totalPrice >= 500 ? 100 : 0;
+   let amountPaid = totalPrice + deliveryCharge - Discount;
+
+   console.log('totalod Price -',totalOldPrice);
+   console.log('total Price -',totalPrice);
    const handleProceedToBuy = () => {
     
    }
@@ -49,12 +55,12 @@ const Cart = () => {
                      <div className="price-ctn br-sm">
                         <h3 className="text-center text-border">Price Details</h3>
                         <div className="price-row">
-                           <p>Price ({totalItems} items)</p>
+                           <p>Price ({cartItems.length} items)</p>
                            <p>₹{totalPrice}</p>
                         </div>
                         <div className="price-row">
                            <p>Discount</p>
-                           <p>- ₹{discount}</p>
+                           <p>- ₹{Discount}</p>
                         </div>
                         <div className="price-row">
                            <p>Delivery charges</p>
@@ -62,8 +68,9 @@ const Cart = () => {
                         </div>
                         <div className="price-row text-border fw-bold">
                            <p>Total Price</p>
-                           <p>₹{amountPaid}</p>
+                           <p>₹{totalPrice}</p>
                         </div>
+
                         <div className="order-btn">
                            <button
                               className="btn btn-primary text-center width-full"
@@ -72,6 +79,7 @@ const Cart = () => {
                               Proceed to Payment
                            </button>
                         </div>
+
                      </div>
 
                 </div>
