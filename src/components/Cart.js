@@ -6,23 +6,27 @@ import ProductCard from './ProductCard'
 import CartLoader from './CartLoader'
 import CartProductCard from './CartProductCard'
 import { useFilter } from '../context/FilterContext'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
 
    const { cartItems } = useCart();
+   const { filterState ,filterDispatch } = useFilter();
+   const navigate = useNavigate();
    console.log('Data in cart here  -',cartItems);
 
    const totalOldPrice = cartItems.reduce((acc,current) => acc + current.oldPrice * current.qty, 0)
-   const totalPrice = cartItems.reduce((acc,current) => acc + current.newPrice * current.qty,0);
-
+  const totalPrice = cartItems.reduce((acc,current) => acc + current.newPrice * current.qty,0);
+ 
    let Discount  = 30 * cartItems.length;
    let deliveryCharge = totalPrice >= 500 ? 100 : 0;
    let amountPaid = totalPrice + deliveryCharge - Discount;
 
-   console.log('totalod Price -',totalOldPrice);
    console.log('total Price -',totalPrice);
+
    const handleProceedToBuy = () => {
-    
+      filterDispatch({type : "ADD_AMOUNT_TO_PAY" , payload : amountPaid})
+      navigate('/checkout');
    }
 
   return (

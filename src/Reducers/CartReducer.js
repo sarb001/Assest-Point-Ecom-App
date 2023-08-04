@@ -40,5 +40,11 @@ export const CartReducer = (state,action) => {
             totalItems : state.totalItems - 1,
             totalPrice : state.totalPrice - action.payload.price,
         }
+
+        case "ADD_AMOUNT_TO_PAY" : 
+        return {
+            ...state,
+            amountPaid : action.payload,
+        }
     }
 }
