@@ -6,8 +6,8 @@ import ProductCard from './ProductCard'
 import CartLoader from './CartLoader'
 import CartProductCard from './CartProductCard'
 import { useFilter } from '../context/FilterContext'
-import { useNavigate } from 'react-router-dom'
-// import '../styles/common.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const Cart = () => {
 

@@ -11,6 +11,7 @@ import Order from './Order'
 import UserProfile, { Profile } from './UserProfile'
 import SingleProduct from './SingleProduct'
 import   { RequireAuth }  from '../components/RequireAuth';
+import Test from './Test'
 
 
 const MenuRoutes = () => {
@@ -19,6 +20,7 @@ const MenuRoutes = () => {
          <Routes >
             <Route path = '/'           element = {<Home  />}>  </Route>
             <Route path = '/login'      element = {<Login />}>  </Route>
+            <Route path = '/test'      element = {<Test />}>  </Route>
             <Route path = '/signup'     element = {<Signup />}>  </Route>
             <Route path = '/products'  element   = {<Products />}>  </Route>
             <Route path = '/product/:productId'   element   = {<SingleProduct />}>  </Route>
