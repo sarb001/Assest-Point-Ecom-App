@@ -6,7 +6,6 @@ export const getProductsbyCategory = (products,category) => {
     let filterProducts = [];
     let count = 0;
 
-
     for(let x in category){
          if(category[x]){
             filterProducts = filterProducts.concat(

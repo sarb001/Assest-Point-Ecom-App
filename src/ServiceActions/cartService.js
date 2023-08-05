@@ -62,3 +62,14 @@ export const decrementproduct = async (maindata,token,setcartItems) => {
        toast.error(err.message)
    }
 }
+
+export const clearCart = async(token) => {
+    try{
+         const response = await axios.delete('/api/user/cart' ,{
+            headers : { authorization : token }
+         })
+    }catch(err){
+        console.log('err while clearing cart -',err);
+        toast.error(err.message)
+    }
+}

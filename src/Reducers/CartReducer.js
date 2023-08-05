@@ -46,5 +46,17 @@ export const CartReducer = (state,action) => {
             ...state,
             amountPaid : action.payload,
         }
+
+        case "CLEAR_CART":
+            return {
+                ...state,
+                cart : [],
+            }
+
+        case "PROCESS_ORDER" : 
+         return{
+            ...state,
+
+        }
     }
 }
