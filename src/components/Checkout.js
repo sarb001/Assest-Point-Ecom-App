@@ -1,13 +1,18 @@
 import React from 'react'
 import Header from './Header'
 import { useCart } from '../context/CartContext'
+import { useFilter } from '../context/FilterContext';
 
 const Checkout = () => {
 
       const {cartItems} = useCart();
-      let discount = 30 * cartItems.length;
+      // const {filterState: {totalPrice}} = useFilter();
+
+      let  discount = 30 * cartItems.length;
       const totalPrice = cartItems.reduce((acc,current) => acc + current.newPrice * current.qty,0);
       let deliveryCharge = totalPrice >= 500 ? 0 : 100;
+
+      console.log('totalPrice -',totalPrice);
 
   return ( 
     <> 
@@ -23,7 +28,7 @@ const Checkout = () => {
                    <h3> Price Details </h3>
                 </div>
                 <div className="price-row">
-                  <p> Price ({cartItems}) items </p> 
+                  <p> Price ({cartItems.length}) items </p> 
                   <p> Rs. {totalPrice} </p>
                 </div>
                 <div className="price-row">
@@ -33,7 +38,7 @@ const Checkout = () => {
               </div>
             </>) : 
             (<>
-                
+                No Products to Checkout 
             </>)}
       </div>
     </>

@@ -9,7 +9,7 @@ const FilterProvider = ({children}) => {
     const [productListing,setproductListing] = useState([]);
     const [filterState,filterDispatch] = useReducer(CartReducer , {
         order : [],
-        totalItems : 0,
+        // totalItems : 0,
         totalPrice : 0,
         amountPaid : 0,
     })
