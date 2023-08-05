@@ -8,7 +8,6 @@ import Wishlist from './Wishlist'
 import Home from './Home'
 import PageNotFound from './PageNotFound'
 import Order from './Order'
-import Checkout from './Checkout'
 import UserProfile, { Profile } from './UserProfile'
 import SingleProduct from './SingleProduct'
 import   { RequireAuth }  from '../components/RequireAuth';
@@ -43,13 +42,6 @@ const MenuRoutes = () => {
                 <Wishlist  />
               </RequireAuth>
             }>  
-            </Route>
-
-            <Route path = '/checkout'   element = {
-              <RequireAuth>
-                <Checkout  />
-              </RequireAuth>
-            }> 
             </Route>
 
             <Route path = '/order'   element = {<Order />}>  </Route>

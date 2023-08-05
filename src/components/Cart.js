@@ -7,6 +7,7 @@ import CartLoader from './CartLoader'
 import CartProductCard from './CartProductCard'
 import { useFilter } from '../context/FilterContext'
 import { useNavigate } from 'react-router-dom'
+// import '../styles/common.css';
 
 const Cart = () => {
 
@@ -23,11 +24,6 @@ const Cart = () => {
    let amountPaid = totalPrice + deliveryCharge - Discount;
 
    console.log('total Amount Paid -',amountPaid);
-
-   const handleProceedToBuy = () => {
-      filterDispatch({type : "ADD_AMOUNT_TO_PAY" , payload : amountPaid})
-      navigate('/checkout');
-   }
 
   return (
     <div className="cart-controller">
@@ -75,18 +71,33 @@ const Cart = () => {
                            <p>₹{amountPaid}</p>
                         </div>
 
-                        <div className="order-btn">
-                           <button
-                              className="btn btn-primary text-center width-full"
-                              onClick={handleProceedToBuy}
-                           >
-                              Proceed to Payment
+
+                           {/* <button class = "btn btn-primary modal-open-btn" >
+                                 Proceed to Payment
                            </button>
-                        </div>
 
+                           <div class = "modal-overlay">
+                                 <div class ="modal-demo-container">
+                                    <h3 class = "pd-bottom-md"> Deal of the Day  </h3>
+                                       <button id = "modal-close" class = 'modal-close-btn'>
+                                             <span class = "material-icons"> close </span>
+                                       </button>
+                                 </div>
+                           </div> */}
+
+                           <button class="btn btn-primary modal-open-btn">Open modal</button>
+                              <div class="modal-overlay">
+                                 <div class="modal-demo-container">
+                                    <h3 class="pd-bottom-md">Deal of the day</h3>
+                                    <p class="fw-bold pd-bottom-lg">The Psychology of money is 50% off</p>
+                                    <button class="btn btn-primary">Buy now</button>
+                                    <button id="modal-close" class="modal-close-btn">
+                                          <span class="material-icons">close</span>
+                                    </button>
+                                 </div>
+                              </div>
+                         </div>
                      </div>
-
-                </div>
          </div>
         </>
        )}

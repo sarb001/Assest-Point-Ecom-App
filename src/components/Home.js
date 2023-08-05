@@ -62,7 +62,7 @@ const Home = () => {
                             <span> 
                                 <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
                                 <p>By Morgan Housel </p>
-                                <button> Read More </button>
+                                <button class = 'btn btn-primary mg-sm'> Read More </button>
                             </span>
 
                           </div>
