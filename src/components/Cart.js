@@ -14,7 +14,6 @@ const Cart = () => {
    const { cartItems } = useCart();
    const { filterState ,filterDispatch } = useFilter();
    const navigate = useNavigate();
-   console.log('Cart Items  -',cartItems);
 
    const totalOldPrice = cartItems.reduce((acc,current) => acc + current.oldPrice * current.qty, 0)
    const totalPrice = cartItems.reduce((acc,current) => acc + current.newPrice * current.qty,0);
@@ -23,7 +22,6 @@ const Cart = () => {
    let deliveryCharge = totalPrice >= 500 ? 100 : 0;
    let amountPaid = totalPrice + deliveryCharge - Discount;
 
-   console.log('total Amount Paid -',amountPaid);
    const [clickcount,setclickcount] = useState(0);
 
    const handleclick = () => {
@@ -84,13 +82,9 @@ const Cart = () => {
                               <p>₹{amountPaid}</p>
                            </div>
 
-                            {/* <div className="payment-button"> */}
                              <button style = {{padding:'2%'}} onClick={handleclick}>
                                 <p> {message}</p> 
                              </button>
-                                      
-                            {/* </div> */}
-
                         </div>
                   </div>
 

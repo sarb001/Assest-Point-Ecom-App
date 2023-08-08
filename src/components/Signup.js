@@ -57,7 +57,6 @@ const Signup = () => {
         toast.success(" You have signed inN ");
         navigate("/");  
       }catch(error){
-        console.log('signup',error);
         toast.error(error.message);
       }
      }else{

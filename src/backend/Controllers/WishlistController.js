@@ -67,7 +67,6 @@ export const removeitemfromwishlist = function(schema,request){
         return new Response(200 , {} , { wishlist : userwishlist });
         
     }catch(error){
-        console.log('error in backend --',error);
         return new Response(500 , {} , {
             error,
         })

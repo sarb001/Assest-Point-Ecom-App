@@ -8,7 +8,6 @@ const Profile = () => {
         setprofile(JSON.parse(localStorage.getItem('userData')));
     },[])
 
-     console.log('profie data -',profile);
 
   return (
     <>

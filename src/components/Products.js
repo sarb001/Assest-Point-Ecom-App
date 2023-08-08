@@ -25,7 +25,6 @@ const Products = () => {
             const response =  await axios.get('/api/products');
             setLoader(false);
             setProducts(response.data.products);
-            console.log('response is -',response.data.products);
 
           }catch(error){
             console.log('error is -',error);
@@ -34,17 +33,11 @@ const Products = () => {
     },[]);
 
     const productsbyPrice    = getProductsbyPrice(Products,state.price);
-    // console.log('productsby Price -',productsbyPrice);
-    
     const productsbyCategory = getProductsbyCategory(productsbyPrice,state.category);
-    // console.log('productsby Category  -',productsbyCategory);
     
     const productsbyRating   = getProductsbyRating(productsbyCategory,state.rating);
-    // console.log('productsby Rating -',productsbyRating);
-    
     const finalproducts      = getProductsBySort(productsbyRating,state.sortBy);
 
-    console.log('finalProducts are -',finalproducts);
 
   return (
     <>

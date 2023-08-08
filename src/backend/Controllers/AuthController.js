@@ -27,12 +27,10 @@ export const signupHandler = function (schema,request) {
                 wishlist: [],
             };
             const createUser = schema.users.create(newUser);
-            console.log('  Created USER --',createUser);
             const encodedToken =  sign({ _id , email } , 'jassa@123');
             return new Response(201, {} , {createUser , encodedToken });
 
         }catch(error){
-            console.log('error inn -',error);
             return new Response(500 , {} ,{error});
         }
 }
@@ -43,7 +41,6 @@ export const loginHandler =  function (schema,request)  {
      try{
 
          const foundUser = schema.users.findBy({ email });
-         console.log(' Logging  email  User --',foundUser);
 
          if(!foundUser){
              return new Response(404 , {} , {

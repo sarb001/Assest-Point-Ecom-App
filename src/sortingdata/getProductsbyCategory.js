@@ -1,8 +1,6 @@
 
 export const getProductsbyCategory = (products,category) => {
 
-    console.log('category --',category);
-
     let filterProducts = [];
     let count = 0;
 

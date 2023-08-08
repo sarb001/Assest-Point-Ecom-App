@@ -4,7 +4,6 @@ import ProductinCart from '../utils/ProductinCart';
 
 const WishlistProductCard = ({maindata}) => {
     
-    console.log('maindata in wishcard -',maindata);
   const {imgSrc, title, author, oldPrice, newPrice, discount} = maindata;
 
   let isAddedToCart = ProductinCart(maindata._id , )

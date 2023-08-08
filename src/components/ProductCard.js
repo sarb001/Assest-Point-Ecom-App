@@ -12,8 +12,7 @@ import { useWishlist } from '../context/WishListContext';
 const ProductCard = ({maindata}) => {
 
     const { author ,category ,discount , imgSrc , title , rating ,newPrice , oldPrice } = maindata;
-    console.log('maindataa -',maindata);
-
+  
     const {cartItems ,setcartItems} = useCart();
     const { wishlistItems , setwishlistItems} = useWishlist();
     const { auth }   =  useAuth();
@@ -22,8 +21,6 @@ const ProductCard = ({maindata}) => {
     const isIteminCart      =  ProductinCart(maindata._id ,cartItems);
     const isIteminWishlist  =  Productinwishlist(maindata._id);
 
-     console.log('item in Cart is  -',isIteminCart);
-     console.log('item in Wishlist -',isIteminWishlist);
 
     const handleaddtocart = () => { 
        if(auth.isLoggedIn){

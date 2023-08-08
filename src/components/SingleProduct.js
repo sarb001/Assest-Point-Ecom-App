@@ -26,7 +26,6 @@ const SingleProduct = () => {
                 const response = await axios.get(`/api/products/${params.productId}`);
                 setLoader(false);
                 setProduct(response.data.product);
-                console.log('response is -',response);
             }catch(err){
                 console.log('Single product --',err);
             }

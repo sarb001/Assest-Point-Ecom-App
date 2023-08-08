@@ -8,11 +8,9 @@ export const addToCart  = async(product,token,setcartItems) => {
              {product} , 
              {headers : { authorization : token }}
             );
-            console.log('add to cart here -',response);
              setcartItems(response.data.cart);
             toast.success(" Added to Cart ");
         }catch(err){
-             console.log('err in posting incart -',err);
              toast.error(err.message);
         }
 }
@@ -22,11 +20,9 @@ export const removefromcart = async(product,token,setcartItems) => {
                 const response = await axios.delete(`/api/user/cart/${product._id}` , {
                     headers : {  authorization :token },
                 });
-                console.log('reponse in removecart -',response);
                 setcartItems(response.data.cart);
                 toast.success(" Removed From Cart ");
         }catch(err){
-            console.log('err in posting incart -',err);
             toast.error(err.message);
         }
 };
@@ -42,7 +38,6 @@ export const incrementproduct = async(maindata,token,setcartItems) => {
          setcartItems(response.data.cart);
          toast.success(' Increased Product Quantity ');
     }catch(err){
-        console.log('err in updating items - ',err);
         toast.error(err.message)
     }
 }
@@ -58,7 +53,6 @@ export const decrementproduct = async (maindata,token,setcartItems) => {
         setcartItems(response.data.cart);
         toast.success(' Decreased Product Quantity ');
    }catch(err){
-       console.log('err in updating items - ',err);
        toast.error(err.message)
    }
 }
@@ -69,7 +63,6 @@ export const clearCart = async(token) => {
             headers : { authorization : token }
          })
     }catch(err){
-        console.log('err while clearing cart -',err);
         toast.error(err.message)
     }
 }
