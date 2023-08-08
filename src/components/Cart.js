@@ -24,6 +24,19 @@ const Cart = () => {
    let amountPaid = totalPrice + deliveryCharge - Discount;
 
    console.log('total Amount Paid -',amountPaid);
+   const [clickcount,setclickcount] = useState(0);
+
+   const handleclick = () => {
+       setclickcount(clickcount + 1);
+      }
+
+       let message ;
+       if(clickcount === 0) {
+         message  = ' Make Payment ';
+       }else if(clickcount === 1){
+         message = " Payment Completed ";
+       }
+
 
   return (
     <div className="cart-controller">
@@ -39,66 +52,49 @@ const Cart = () => {
         <>  
              <div className="cart-container" style = {{display:'grid',gridTemplateColumns:'2fr 1fr',margin:'2%'}}>
 
-                <div className="cart-item" style = {{padding:'3%'}}>
-                     {cartItems?.map((item) => {
-                        return (
-                           <div className = "cart-items" style = {{padding:'5% 2%'}} key = {item._id} >
-                              <CartProductCard  maindata = {item}   />
-                           </div>
-                        )
-                     }
-                     )}
-               </div>  
-
-                 <div className="total-items" style = {{padding:'4%'}}>
-
-                     <div className="price-ctn br-sm">
-                        <h3 className="text-center text-border">Price Details</h3>
-                        <div className="price-row">
-                           <p>Price ({cartItems.length} items)</p>
-                           <p>₹{totalPrice}</p>
-                        </div>
-                        <div className="price-row">
-                           <p>Discount</p>
-                           <p>- ₹{Discount}</p>
-                        </div>
-                        <div className="price-row">
-                           <p>Delivery charges</p>
-                           <p>₹{deliveryCharge}</p>
-                        </div>
-                        <div className="price-row text-border fw-bold">
-                           <p>Total Price</p>
-                           <p>₹{amountPaid}</p>
-                        </div>
-
-
-                           {/* <button class = "btn btn-primary modal-open-btn" >
-                                 Proceed to Payment
-                           </button>
-
-                           <div class = "modal-overlay">
-                                 <div class ="modal-demo-container">
-                                    <h3 class = "pd-bottom-md"> Deal of the Day  </h3>
-                                       <button id = "modal-close" class = 'modal-close-btn'>
-                                             <span class = "material-icons"> close </span>
-                                       </button>
-                                 </div>
-                           </div> */}
-
-                           <button class="btn btn-primary modal-open-btn">Open modal</button>
-                              <div class="modal-overlay">
-                                 <div class="modal-demo-container">
-                                    <h3 class="pd-bottom-md">Deal of the day</h3>
-                                    <p class="fw-bold pd-bottom-lg">The Psychology of money is 50% off</p>
-                                    <button class="btn btn-primary">Buy now</button>
-                                    <button id="modal-close" class="modal-close-btn">
-                                          <span class="material-icons">close</span>
-                                    </button>
-                                 </div>
+                  <div className="cart-item" style = {{padding:'3%'}}>
+                        {cartItems?.map((item) => {
+                           return (
+                              <div className = "cart-items" style = {{padding:'5% 2%'}} key = {item._id} >
+                                 <CartProductCard  maindata = {item}   />
                               </div>
-                         </div>
-                     </div>
-         </div>
+                           )
+                        }
+                        )}
+                  </div>  
+
+                  <div className="total-items" style = {{padding:'4%'}}>
+
+                        <div className="price-ctn br-sm">
+                           <h3 className="text-center text-border">Price Details</h3>
+                           <div className="price-row">
+                              <p>Price ({cartItems.length} items)</p>
+                              <p>₹{totalPrice}</p>
+                           </div>
+                           <div className="price-row">
+                              <p>Discount</p>
+                              <p>- ₹{Discount}</p>
+                           </div>
+                           <div className="price-row">
+                              <p>Delivery charges</p>
+                              <p>₹{deliveryCharge}</p>
+                           </div>
+                           <div className="price-row text-border fw-bold">
+                              <p>Total Price  - </p>
+                              <p>₹{amountPaid}</p>
+                           </div>
+
+                            {/* <div className="payment-button"> */}
+                             <button style = {{padding:'2%'}} onClick={handleclick}>
+                                <p> {message}</p> 
+                             </button>
+                                      
+                            {/* </div> */}
+
+                        </div>
+                  </div>
+
+              </div>
         </>
        )}
            
