@@ -3,6 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
 import IMAGES from '../images/images';
+import '../styles/Home.css';
 
  const featureImages = [
   {
@@ -71,7 +72,7 @@ const Home = () => {
 
                       </div>
                   </div>
-                  
+
           </div> 
         <Footer />
     </>

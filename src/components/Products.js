@@ -14,23 +14,21 @@ import { getProductsBySort } from '../sortingdata/getProductsBySort';
 const Products = () => {
 
     const [Products,setProducts] = useState([]);
-    const [setLoader] = useState(true);
+    const [loader,setLoader] = useState(true);
     const {state} = useProduct();
-
-
 
     useEffect(()  => {
         (async () => {
           try {
             const response =  await axios.get('/api/products');
+            console.log('reponse in products -',response);
             setLoader(false);
             setProducts(response.data.products);
-
           }catch(error){
             console.log('error is -',error);
           }
         })()
-    },[setLoader]);
+    },[]);
 
     const productsbyPrice    = getProductsbyPrice(Products,state.price);
     const productsbyCategory = getProductsbyCategory(productsbyPrice,state.category);
@@ -50,7 +48,7 @@ const Products = () => {
           <div className="text-section">
             <h2> Total No. {finalproducts.length} of Products </h2>
 
-              <div className="all-products" style = {{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
+              <div className = "all-products" style = {{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
                  {finalproducts.map((item) => (
                     <ProductCard  maindata = {item}  key = {item.title} />
                   )

@@ -13,7 +13,7 @@ import { useWishlist } from '../context/WishListContext';
 const SingleProduct = () => {
 
     const [product,setProduct] = useState({});
-    const [setLoader] = useState(true);
+    const [loader,setLoader] = useState(true);
     const params = useParams();
     const { auth } = useAuth();
     const { cartItems , setcartItems } =  useCart();
@@ -30,7 +30,7 @@ const SingleProduct = () => {
                 console.log('Single product --',err);
             }
         })();
-    },[params.productId])
+    },[])
 
     let currentIteminCart =   product &&  ProductinCart(product._id,cartItems);
     let addedtoWishlist = product && Productinwishlist(product._id);
