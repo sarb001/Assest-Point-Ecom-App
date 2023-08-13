@@ -13,11 +13,11 @@ import { useWishlist } from '../context/WishListContext';
 const SingleProduct = () => {
 
     const [product,setProduct] = useState({});
-    const [loader,setLoader] = useState(true);
+    const [setLoader] = useState(true);
     const params = useParams();
     const { auth } = useAuth();
     const { cartItems , setcartItems } =  useCart();
-    const { wishlistItems , setwishlistItems } =  useWishlist();
+    const {setwishlistItems } =  useWishlist();
     const navigate = useNavigate();
 
     useEffect(() => {

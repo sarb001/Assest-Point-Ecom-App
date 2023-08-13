@@ -6,7 +6,7 @@ import { decrementproduct, incrementproduct, removefromcart } from '../ServiceAc
 const CartProductCard = ({maindata}) => {
     const {imgSrc, title, author, oldPrice, newPrice, discount, qty } = maindata;
     const { auth } = useAuth();
-    const {  cartItems , setcartItems } = useCart();
+    const { setcartItems } = useCart();
 
     const handleRemoveFromCart   = () => {
          removefromcart(maindata,auth.token,setcartItems);
@@ -26,7 +26,7 @@ const CartProductCard = ({maindata}) => {
     <>
       <div className="cartproduct-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr' ,backgroundColor:'rebeccapurple'}}>
            <div className="image-container" style = {{textAlign:'center'}}>
-              <img src={imgSrc} alt="product-image" className="docs-hor-card-img"  style = {{width:'50%',padding:'4% 1%'}}  />
+              <img src={imgSrc} alt = "product" className="docs-hor-card-img"  style = {{width:'50%',padding:'4% 1%'}}  />
            </div>
 
              <div className="item-details" style = {{color:'white'}}>

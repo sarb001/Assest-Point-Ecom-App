@@ -2,19 +2,14 @@ import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { useCart } from '../context/CartContext';
-import CartProductCard from './CartProductCard'
-import { useFilter } from '../context/FilterContext'
-import { useNavigate } from 'react-router-dom';
+import CartProductCard from './CartProductCard';
 import  '../styles/Cart.css';
 
 
 const Cart = () => {
 
    const { cartItems } = useCart();
-   const { filterState ,filterDispatch } = useFilter();
-   const navigate = useNavigate();
 
-   const totalOldPrice = cartItems.reduce((acc,current) => acc + current.oldPrice * current.qty, 0)
    const totalPrice = cartItems.reduce((acc,current) => acc + current.newPrice * current.qty,0);
  
    let Discount  = 30 * cartItems.length;

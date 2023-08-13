@@ -1,5 +1,4 @@
-import { children, createContext, useContext, useEffect, useReducer, useState ,} from "react";
-import { CartReducer } from "../Reducers/CartReducer";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
 
@@ -8,7 +7,6 @@ const CartContext = createContext();
 const CartProvider = ({children}) => {
 
      const [cartItems,setcartItems] = useState([]);
-     const { auth } = useAuth();
      const { token }  = useAuth();
 
     useEffect(() => {

@@ -52,11 +52,7 @@ export const CartReducer = (state,action) => {
                 ...state,
                 cart : [],
             }
-
-        case "PROCESS_ORDER" : 
-         return{
-            ...state,
-
-        }
+        default : 
+           return state;
     }
 }

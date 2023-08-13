@@ -14,8 +14,8 @@ import { getProductsBySort } from '../sortingdata/getProductsBySort';
 const Products = () => {
 
     const [Products,setProducts] = useState([]);
-    const [Loader,setLoader] = useState(true);
-    const {state,dispatch} = useProduct();
+    const [setLoader] = useState(true);
+    const {state} = useProduct();
 
 
 
@@ -30,7 +30,7 @@ const Products = () => {
             console.log('error is -',error);
           }
         })()
-    },[]);
+    },[setLoader]);
 
     const productsbyPrice    = getProductsbyPrice(Products,state.price);
     const productsbyCategory = getProductsbyCategory(productsbyPrice,state.category);

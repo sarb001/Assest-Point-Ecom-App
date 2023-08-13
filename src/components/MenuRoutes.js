@@ -8,7 +8,7 @@ import Wishlist from './Wishlist'
 import Home from './Home'
 import PageNotFound from './PageNotFound'
 import Order from './Order'
-import UserProfile, { Profile } from './UserProfile'
+import UserProfile from './UserProfile'
 import SingleProduct from './SingleProduct'
 import   { RequireAuth }  from '../components/RequireAuth';
 

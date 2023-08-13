@@ -1,25 +1,19 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
-import { useWishlist } from '../context/WishListContext'
-import { useAuth } from '../context/AuthContext'
-import CartLoader from './CartLoader'
-import ProductCard from './ProductCard'
+import { useWishlist } from '../context/WishListContext';
 import WishlistProductCard from './WishlistProductCard'
 
 const Wishlist = () => {
 
-   const { wishlistItems  ,setwishlistItems } = useWishlist();
-   const { auth }   = useAuth();
-   const { token }  = useAuth();
-
+   const { wishlistItems  } = useWishlist();
   return (
   
    <>
    <div className="wishlist-container">
      <Header />
           <div className="wishlist-items">
-             {wishlistItems.length == 0 ? (
+             {wishlistItems.length === 0 ? (
              <>
                 <div className="wishlist-msg" style = {{textAlign:'center'}}>
                    <h2>  WishList is Empty </h2>

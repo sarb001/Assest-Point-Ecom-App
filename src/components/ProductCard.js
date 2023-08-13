@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineHeart ,AiFillHeart } from 'react-icons/ai';
-import ProductinCart, { isProductinCart } from '../utils/ProductinCart';
+import ProductinCart  from '../utils/ProductinCart';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { addToCart } from '../ServiceActions/cartService';
@@ -11,10 +11,10 @@ import { useWishlist } from '../context/WishListContext';
 
 const ProductCard = ({maindata}) => {
 
-    const { author ,category ,discount , imgSrc , title , rating ,newPrice , oldPrice } = maindata;
+    const { author , imgSrc , title , rating ,newPrice } = maindata;
   
     const {cartItems ,setcartItems} = useCart();
-    const { wishlistItems , setwishlistItems} = useWishlist();
+    const { setwishlistItems} = useWishlist();
     const { auth }   =  useAuth();
     const navigate = useNavigate();
 

@@ -7,7 +7,6 @@ const WishlistContext = createContext();
 const WishlistProvider = ({children}) => {
 
     const [wishlistItems,setwishlistItems] = useState([]);
-    const { auth }   = useAuth();
     const { token }  = useAuth();
 
     useEffect(() => {

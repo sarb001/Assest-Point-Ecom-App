@@ -1,5 +1,4 @@
 
-import App from "./App";
 import { Model, Server } from 'miragejs';
 import { products } from './backend/db/products';
 import { categories } from './backend/db/categories';

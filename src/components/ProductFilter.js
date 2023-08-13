@@ -7,7 +7,7 @@ const ProductFilter = () => {
 
 
     const { state , dispatch } = useProduct();
-    const { price ,category , rating , sortBy } = state;
+    const { price ,category , sortBy } = state;
 
         const categoryData = [       
             
