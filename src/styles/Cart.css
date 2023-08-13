@@ -1,0 +1,17 @@
+.cart-msg{
+    text-align: center;
+}
+.cart-container{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    margin:2%;
+}
+.cart-item{
+    padding: 3%;
+}
+.card-items{
+    padding: 5% 2%;
+}
+.total-items{
+    padding: 4%;
+}

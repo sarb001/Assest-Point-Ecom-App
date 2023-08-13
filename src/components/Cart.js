@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
-import { useCart } from '../context/CartContext'
-import ProductCard from './ProductCard'
-import CartLoader from './CartLoader'
+import { useCart } from '../context/CartContext';
 import CartProductCard from './CartProductCard'
 import { useFilter } from '../context/FilterContext'
 import { useNavigate } from 'react-router-dom';
+import  '../styles/Cart.css';
 
 
 const Cart = () => {
@@ -42,51 +41,51 @@ const Cart = () => {
 
        {cartItems.length === 0 ? ( 
         <>
-            <div className="cart-msg" style = {{textAlign:'center'}}>
+            <div className="cart-msg" >
               <h2> Cart is Empty </h2>
             </div>
         </>
        ) :(
         <>  
-             <div className="cart-container" style = {{display:'grid',gridTemplateColumns:'2fr 1fr',margin:'2%'}}>
+             <div className="cart-container" >
 
-                  <div className="cart-item" style = {{padding:'3%'}}>
-                        {cartItems?.map((item) => {
-                           return (
-                              <div className = "cart-items" style = {{padding:'5% 2%'}} key = {item._id} >
-                                 <CartProductCard  maindata = {item}   />
+                        <div className="cart-item" >
+                              {cartItems?.map((item) => {
+                                 return (
+                                    <div className = "card-items"  key = {item._id} >
+                                       <CartProductCard  maindata = {item}   />
+                                    </div>
+                                 )
+                              }
+                              )}
+                        </div>  
+
+                        <div className="total-items">
+
+                              <div className="price-ctn br-sm">
+                                 <h3 className="text-center text-border">Price Details</h3>
+                                 <div className="price-row">
+                                    <p>Price ({cartItems.length} items)</p>
+                                    <p>₹{totalPrice}</p>
+                                 </div>
+                                 <div className="price-row">
+                                    <p>Discount</p>
+                                    <p>- ₹{Discount}</p>
+                                 </div>
+                                 <div className="price-row">
+                                    <p>Delivery charges</p>
+                                    <p>₹{deliveryCharge}</p>
+                                 </div>
+                                 <div className="price-row text-border fw-bold">
+                                    <p>Total Price  - </p>
+                                    <p>₹{amountPaid}</p>
+                                 </div>
+
+                                 <button style = {{padding:'2%'}} onClick={handleclick}>
+                                    <p> {message}</p> 
+                                 </button>
                               </div>
-                           )
-                        }
-                        )}
-                  </div>  
-
-                  <div className="total-items" style = {{padding:'4%'}}>
-
-                        <div className="price-ctn br-sm">
-                           <h3 className="text-center text-border">Price Details</h3>
-                           <div className="price-row">
-                              <p>Price ({cartItems.length} items)</p>
-                              <p>₹{totalPrice}</p>
-                           </div>
-                           <div className="price-row">
-                              <p>Discount</p>
-                              <p>- ₹{Discount}</p>
-                           </div>
-                           <div className="price-row">
-                              <p>Delivery charges</p>
-                              <p>₹{deliveryCharge}</p>
-                           </div>
-                           <div className="price-row text-border fw-bold">
-                              <p>Total Price  - </p>
-                              <p>₹{amountPaid}</p>
-                           </div>
-
-                             <button style = {{padding:'2%'}} onClick={handleclick}>
-                                <p> {message}</p> 
-                             </button>
                         </div>
-                  </div>
 
               </div>
         </>

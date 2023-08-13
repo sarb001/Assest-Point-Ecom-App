@@ -1,0 +1,17 @@
+.home-container{
+ margin: 5%;
+}
+.btn-section{
+    background-color: red;
+    padding:1%;
+    width:10%
+}
+.books-section{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align:center;
+}
+.books-partition{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

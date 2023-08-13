@@ -6,10 +6,10 @@ import '../styles/Footer.css';
 const Footer = () => {
   return (
     <>
-      <div className="footer" style = {{textAlign:'center',backgroundColor:'grey',color:'black'}}>
+      <div className="footer">
         <p>Made by Sarb</p>
           <div style = {{padding:'2%'}}>
-            <div className="footer-links" style = {{fontSize:'25px',display:'grid',gridTemplateColumns:'1fr 1fr 1fr'}}>
+            <div className="footer-links" >
               <a href="https://github.com/sarb001">
                 <BsGithub />
               </a>
