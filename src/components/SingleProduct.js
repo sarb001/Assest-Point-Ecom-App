@@ -30,7 +30,7 @@ const SingleProduct = () => {
                 console.log('Single product --',err);
             }
         })();
-    },[])
+    },[params.productId])
 
     let currentIteminCart =   product &&  ProductinCart(product._id,cartItems);
     let addedtoWishlist = product && Productinwishlist(product._id);
