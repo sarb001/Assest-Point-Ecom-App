@@ -59,7 +59,7 @@ export const decrementproduct = async (maindata,token,setcartItems) => {
 
 export const clearCart = async(token) => {
     try{
-         const response = await axios.delete('/api/user/cart' ,{
+         await axios.delete('/api/user/cart' ,{
             headers : { authorization : token }
          })
     }catch(err){

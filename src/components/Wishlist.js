@@ -8,7 +8,6 @@ const Wishlist = () => {
 
    const { wishlistItems  } = useWishlist();
   return (
-  
    <>
    <div className="wishlist-container">
      <Header />
