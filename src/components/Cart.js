@@ -16,20 +16,11 @@ const Cart = () => {
    let deliveryCharge = totalPrice >= 500 ? 100 : 0;
    let amountPaid = totalPrice + deliveryCharge - Discount;
 
-   const [clickcount,setclickcount] = useState(0);
 
       const handleclick = () => {
-         setclickcount(clickcount + 1);
+         alert('Payment Completed')
          }
-
-       let message ;
-       if(clickcount === 0) {
-         message  = ' Make Payment ';
-       }else if(clickcount === 1){
-         message = " Payment Completed ";
-       }
-
-
+         
   return (
    <>
        <Header />
@@ -76,7 +67,7 @@ const Cart = () => {
                                  </div>
 
                                  <button style = {{padding:'2%'}} onClick={handleclick}>
-                                    <p> {message}</p> 
+                                    <p> Make Payment </p> 
                                  </button>
                               </div>
                         </div>

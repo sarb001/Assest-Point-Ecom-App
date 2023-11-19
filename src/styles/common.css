@@ -4,133 +4,29 @@
     margin: 0px;
     padding: 0px;
 }
+.app-ctn{
+  margin:  13% 25%;
+}
 form {
-    background-color: lightcyan;
-    padding: 2rem 4rem;
+    margin: 1%;
+    background-color: rgb(207, 207, 207);
+    padding: 1rem 1rem;
     width: 100%;
+    font-size: 18px;
     max-width: 31.25rem;
     border-radius: 8px;
-    margin: 4rem auto 0;
     box-shadow: lavenderblush;
   }
-  
+  .form-control{
+    margin:3%
+  }
   section form h2 {
     padding: 0;
   }
   
-  .form-control {
-    padding-bottom: 1rem;
-    position: relative;
-  }
-  
-  .form-control label {
-    display: block;
-    padding-bottom: 0.125rem;
-  }
-  
-  .form-control label[for="remember-me"],
-  .form-control label[for="terms-condition"] {
-    display: inline-block;
-    padding-left: 0.5rem;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  select {
-    width: 100%;
-    padding: 0.5rem;
-    font-family: inherit;
-    font-size: inherit;
-    border-radius: 6px;
-  }
-  
-  input:focus {
-    border-color: darkgray;
-  }
-  
-  .password-eye {
-    position: absolute;
-    top: 30px;
-    right: 10px;
-    cursor: pointer;
-  }
-  
-  .form-control button {
-    width: 100%;
-  }
-  
-  .account-toggle a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--txt-dark);
-  }
-  
-  /* login */
-  .forgot-pw {
-    padding-left: 3rem;
-    color: #a78bfa;
-  }
-  
-  /* error */
-  .error-msg {
-    color: var(--input-error);
-  }
-  
-  /* logout */
-  .logout-btns {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  button.btn-icon-text-outline {
-    margin: 0;
-    background-color: var(--clr-white);
-  }
-  
-  /* address form */
-  .address-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--modal-overlay-bg);
-    display: grid;
-    place-items: center;
-    z-index: 10;
-  }
-  
-  .form-space {
-    margin: 1rem auto;
-  }
-  
-  .address-form {
-    overflow-y: auto;
-    max-height: 100%;
-  }
-  
-  .form-option {
-    display: flex;
-    gap: 1rem;
-    padding-top: 1rem;
-  }
-  
+ 
   /* media queries */
-  @media screen and (max-width: 800px) {
-    form {
-      width: 90%;
-      padding: 1.5rem;
-      overflow-y: auto;
-    }
-  
-    .forgot-pw {
-      display: block;
-      padding: 0;
-    }
-  }
-  
+
   #clear-btn{
     padding: 2% 4%;
   }

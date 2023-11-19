@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import { Link, useNavigate } from 'react-router-dom'
-import '../styles/common.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useAuth } from '../context/AuthContext';
@@ -144,23 +143,30 @@ const Signup = () => {
               I accept all Terms & Conditions
             </label>
           </div>
-          <div className="form-control">
-            <button className="btn btn-primary">Create New Account</button>
+
+          <div style = {{textAlign:'center'}}>
+            
+            <div className="form-control">
+              <button className="btn btn-primary">Create New Account</button>
+            </div>
+
+            <div className="form-control">
+              <button
+                type="button"
+                className="btn btn-primary-outline"
+                onClick={handleTestSignup}
+              >
+                Fill test credentials
+              </button>
+            </div>
+
+            <div className="account-toggle fw-bold">
+              <Link to="/login">
+                Already have an account{" "}
+              </Link>
+            </div>
           </div>
-          <div className="form-control">
-            <button
-              type="button"
-              className="btn btn-primary-outline"
-              onClick={handleTestSignup}
-            >
-              Fill test credentials
-            </button>
-          </div>
-          <div className="account-toggle fw-bold">
-            <Link to="/login">
-              Already have an account{" "}
-            </Link>
-          </div>
+
         </form>
       </section>
     </>

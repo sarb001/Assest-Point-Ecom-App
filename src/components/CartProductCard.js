@@ -24,12 +24,12 @@ const CartProductCard = ({maindata}) => {
 
   return (
     <>
-      <div className="cartproduct-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr' ,backgroundColor:'rebeccapurple'}}>
+      <div className="cartproduct-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr' ,backgroundColor:'lightgrey'}}>
            <div className="image-container" style = {{textAlign:'center'}}>
               <img src={imgSrc} alt = "product" className="docs-hor-card-img"  style = {{width:'50%',padding:'4% 1%'}}  />
            </div>
 
-             <div className="item-details" style = {{color:'white'}}>
+             <div className="item-details" style = {{color:'black'}}>
                 <div className="horizontal-txt pd-xs">
                     <div className="card-title">
                       <h4>{title}</h4>
