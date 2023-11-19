@@ -131,3 +131,21 @@ form {
     }
   }
   
+  #clear-btn{
+    padding: 2% 4%;
+  }
+  .title-second-section{
+    padding: 3%;
+    font-size: 21px;
+  }
+  .product-des{
+    margin: 5% 0%;
+    word-spacing: 2px;
+    font-size: 20px;
+  }
+  .product-price{
+    margin: 3% 0%;
+  }
+  .price{
+    margin: 1%;
+  }

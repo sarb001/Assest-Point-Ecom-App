@@ -42,19 +42,19 @@ const ProductCard = ({maindata}) => {
           navigate('/login')
        }
     }
-    
+
 
   return (
     <>   
       <div className="product-container">
-           <div className="product-section" style = {{backgroundColor:'lightsalmon',margin:'3%',width:'75%',color:'black'}}>
+           <div className="product-section" style = {{backgroundColor:'lightgray',margin:'3%',width:'75%',color:'black'}}>
 
-        <Link to = {`/product/${maindata._id}`} style = {{textDecoration:'none'}}>
-              <div className="image-first-section" style = {{padding:'3%'}}>
-                 <img src = {imgSrc} alt = {title}  style = {{width:'100%',height:'50vh'}} />
-              </div>
-        </Link>
-              <div className="title-second-section">
+               <Link to = {`/product/${maindata._id}`} style = {{textDecoration:'none'}}>
+                    <div className="image-first-section" style = {{padding:'3%'}}>
+                         <img src = {imgSrc} alt = {title}  style = {{width:'100%',height:'50vh'}} />
+                    </div>
+               </Link>
+              <div className="title-second-section">                       
                     <b> {title} </b>
                     <small> {author} </small>
                      <div className = "rating-price-section" style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
@@ -64,22 +64,22 @@ const ProductCard = ({maindata}) => {
 
               </div>
 
-              <div className="addtocart-third-section" style = {{margin:'3%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+              <div className="addtocart-third-section" style = {{padding:'3%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
 
                    { isIteminCart ? (
                           <Link to = "/cart" className='btn btn-icon-text-outline'>
                                Go to Cart
                           </Link>
                    ) : (
-                           <button  onClick = {handleaddtocart} >
+                           <button style = {{padding:'4%'}}  onClick = {handleaddtocart} >
                                ADD  to Cart  
                             </button>
                    )}
 
                    { isIteminWishlist ? (
                         <span style = {{cursor:'pointer',textAlign:'center'}}> 
-                          <button onClick = {handleaddtowishlist}>
-                              <AiFillHeart  style = {{color : 'red'}} />
+                          <button  style = {{padding:'7%'}}  onClick = {handleaddtowishlist}>
+                              <AiFillHeart  />
                           </button>
                         </span>
                     

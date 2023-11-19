@@ -40,13 +40,14 @@ const Products = () => {
   return (
     <>
      <Header  />
-      <div className="products-container" style= {{display:'grid',gridTemplateColumns:'1fr 2fr',
-      margin:'2% 4%'}}>
+      <div className="products-container">
+
           <div className="filter-section">
               <span> <ProductFilter /> </span>
           </div>
+          
           <div className="text-section">
-            <h2> Total No. {finalproducts.length} of Products </h2>
+            <h3> Total No. {finalproducts.length} of Products </h3>
 
               <div className = "all-products" style = {{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
                  {finalproducts.map((item) => (

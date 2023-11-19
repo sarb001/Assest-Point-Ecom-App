@@ -8,3 +8,8 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
+  .products-container{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+     margin: 2% 4%;
+  }

@@ -47,7 +47,6 @@ const SingleProduct = () => {
         }
     }
 
-
     const handleAddToCart = () => {
         if(auth.isLoggedIn){
             addToCart(product,auth.token,setcartItems);
@@ -60,108 +59,115 @@ const SingleProduct = () => {
   return (
     <>
             <Header />
-        <div className="single-product" style = {{margin:'3%'}}>
+        <div className="single-product" style = {{margin:'2% 6%'}}>
              <section className="single-product-ctn" style  = {{display:'grid',gridTemplateRows:'1fr 1fr'}}>
-                <div className="product-card" style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+                    <div className="product-card" style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
 
-                    <div className="image-section">
-                        <img
-                            src={product.imgSrc} style = {{width:'50%'}}
-                            alt={product.title}
-                            className="product-img"  />
-                    </div>
-
-                    <div className="product-info">
-                        <div className="product-title">
-                        <h2>{product.title}</h2>
-                        </div>
-                        <p className="author">{product.author}</p>
-
-                        <div className="badge-rating br-sm">
-                        <span>{product.rating}</span>
-                        <span className="material-icons rating-fill">star</span>
+                        <div className="image-section">
+                            <img
+                                src={product.imgSrc} style = {{width:'50%'}}
+                                alt={product.title}
+                                className="product-img"  />
                         </div>
 
-                        <div className="product-price">
-                        <p className="price fw-bold">₹{product.newPrice}</p>
-                        <p className="price-cut">₹{product.oldPrice}</p>
-                        <p className="price-discount">({product.discount}% off)</p>
-                        </div>
-                        <p>inclusive of all taxes</p>
+                        <div className="product-info">
+                            <div className="product-title">
+                             <h2>{product.title}</h2>
+                            </div>
+                            <p className="author">{product.author}</p>
 
-                        <div className="cta-btns" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',columnGap:'30px'}}>
-                            
-                            {  currentIteminCart ? (
-                                <>
-                                    <Link to = "/cart" href = "#" className = "btn btn-icon-text-outline">
-                                     Go to Cart 
-                                    </Link>
-                                </>
-                            ) : (
-                                <button className = "btn btn-icon-text" onClick = {handleAddToCart}>
-                                    Add to cart 
-                                </button>
-                             )
-                            }
+                            <div className="badge-rating">
+                             <span>{product.rating}</span>
+                             <span className="material-icons rating-fill">star</span>
+                            </div>
 
-                            {/*  For Wishlist  */}
+                            <div className="product-price">
+                                <p className="price fw-bold"> Old Price - ₹{product.oldPrice}</p>
+                                <p className="price fw-bold"> New Price - ₹{product.newPrice}</p>
+                            <p className="price-discount">
+                                ({product.discount}% off)
+                              inclusive of all taxes</p>
+                            </div>
 
-                            { addedtoWishlist ? (
-                            <>
-                                 <button    className='btn btn-icon-text-outline'   onClick = {handleRemoveFromWishList}>
-                                  Added to Wishlist 
-                                 </button>
-                            </>) : (
-                                <>
-                                    <button  onClick={handleAddToWishList}   className='btn btn-icon-text-outline' >
-                                       Add to WishList 
+                            <div className="cta-btns" style = {{display:'grid',margin:'3%',gridTemplateColumns:'1fr 1fr',columnGap:'30px'}}>
+                                
+                                {  currentIteminCart ? (
+                                    <>
+                                        <Link to = "/cart" href = "#" className = "btn btn-icon-text-outline">
+                                        Go to Cart 
+                                        </Link>
+                                    </>
+                                ) : (
+                                    <button className = "btn btn-icon-text" onClick = {handleAddToCart}>
+                                        Add to cart 
                                     </button>
-                                </>
-                            )
-                            }
-                            
+                                )
+                                }
+
+                                {/*  For Wishlist  */}
+
+                                { addedtoWishlist ? (
+                                <>
+                                    <button    className='btn btn-icon-text-outline'   onClick = {handleRemoveFromWishList}>
+                                    Added to Wishlist 
+                                    </button>
+                                </>) : (
+                                    <>
+                                        <button  onClick={handleAddToWishList}   className='btn btn-icon-text-outline' >
+                                        Add to WishList 
+                                        </button>
+                                    </>
+                                )
+                                }
+                                
+                            </div>
+
+                                <div className="product-data-ctn">
+
+                                <div className="product-data">
+                                    <h3 className="pd-bottom-lg">Details</h3>
+                                    <p className="pd-bottom-md">
+                                    <span className="fw-bold">Publisher:</span> Jaico Publishing House{" "}
+                                    </p>
+                                    <p className="pd-bottom-md">
+                                    <span className="fw-bold">Language:</span> English
+                                    </p>
+                                    <p className="pd-bottom-md">
+                                    <span className="fw-bold">Format: </span>Paperback, 252 pages
+                                    </p>
+                                    <p className="pd-bottom-md">
+                                    <span className="fw-bold">Item Weight:</span> 220 g
+                                    </p>
+                                    <p className="pd-bottom-md">
+                                    <span className="fw-bold">Dimensions:</span> 20 x 14 x 4 cm
+                                    </p>
+                                </div>
+                                </div>
                         </div>
+
+                    
                     </div>
-                </div>
-                <div className="product-data-ctn">
-                <div className="product-des">
-                    <h3 className="pd-bottom-lg">Description</h3>
-                    <p>
-                    Timeless lessons on wealth, greed, and happiness doing well with
-                    money isn?t necessarily about what you know. It?s about how you
-                    behave. And behavior is hard to teach, even to really smart
-                    people. How to manage money, invest it, and make business
-                    decisions are typically considered to involve a lot of
-                    mathematical calculations, where data and formulae tell us exactly
-                    what to do. But in the real world, people don?t make financial
-                    decisions on a spreadsheet. They make them at the dinner table, or
-                    in a meeting room, where personal history, your unique view of the
-                    world, ego, pride, marketing, and odd incentives are scrambled
-                    together. In the psychology of money, the author shares 19 short
-                    stories exploring the strange ways people think about money and
-                    teaches you how to make better sense of one of life?s most
-                    important matters.
-                    </p>
-                </div>
-                <div className="product-data">
-                    <h3 className="pd-bottom-lg">Details</h3>
-                    <p className="pd-bottom-md">
-                    <span className="fw-bold">Publisher:</span> Jaico Publishing House{" "}
-                    </p>
-                    <p className="pd-bottom-md">
-                    <span className="fw-bold">Language:</span> English
-                    </p>
-                    <p className="pd-bottom-md">
-                    <span className="fw-bold">Format: </span>Paperback, 252 pages
-                    </p>
-                    <p className="pd-bottom-md">
-                    <span className="fw-bold">Item Weight:</span> 220 g
-                    </p>
-                    <p className="pd-bottom-md">
-                    <span className="fw-bold">Dimensions:</span> 20 x 14 x 4 cm
-                    </p>
-                </div>
-                </div>
+                    <div>
+                      <div className="product-des">
+                                <h3 className="pd-bottom-lg">Description</h3>
+                                <p>
+                                Timeless lessons on wealth, greed, and happiness doing well with
+                                money isn?t necessarily about what you know. It?s about how you
+                                behave. And behavior is hard to teach, even to really smart
+                                people. How to manage money, invest it, and make business
+                                decisions are typically considered to involve a lot of
+                                mathematical calculations, where data and formulae tell us exactly
+                                what to do. But in the real world, people don?t make financial
+                                decisions on a spreadsheet. They make them at the dinner table, or
+                                in a meeting room, where personal history, your unique view of the
+                                world, ego, pride, marketing, and odd incentives are scrambled
+                                together. In the psychology of money, the author shares 19 short
+                                stories exploring the strange ways people think about money and
+                                teaches you how to make better sense of one of life?s most
+                                important matters.
+                                </p>
+                      </div>
+                    </div>
              </section>
         </div>
     </>

@@ -60,15 +60,16 @@ const ProductFilter = () => {
     <>
         <div className = "productfilter-container">
                 <div className = "clearbtn-section">
-                    <h3> Filters </h3>
-                    <button 
-                    onClick = {() => dispatch({type : "CLEAR"})} > 
+                  <div style = {{margin:'1%'}}v>  <h3> Filters </h3></div> 
+                    <button id = "clear-btn" onClick = {() => dispatch({type : "CLEAR"})} > 
                     Clear </button>
                 </div>
 
                 <div className="range-section" >
-                       <span> Price - </span>
-                        <div className="slider-value" style = {{backgroundColor:'blueviolet',display:'grid',gridTemplateColumns:'1fr 1fr 1fr',width:'30%'}}>
+                    <div style = {{margin:'2%'}}>
+                       <h3> Price </h3>    
+                    </div>
+                        <div className="slider-value" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',width:'30%'}}>
                          <p> 100 </p>
                          <p> 500 </p>
                          <p> 1000 </p>
@@ -85,7 +86,9 @@ const ProductFilter = () => {
                 </div>
 
                 <div className="category-section">
+                    <div  style = {{margin:'2%'}}>
                         <h3> Category </h3>
+                    </div>
                      {categoryData.map((item) => (
                         <CategoryData  item = {item} key = {item.title} />
                      ))}
@@ -93,14 +96,18 @@ const ProductFilter = () => {
                 </div>
 
                 <div className="rating-section">
-                <h3> Rating </h3>
+                    <div  style = {{margin:'2%'}}>
+                          <h3> Rating </h3>
+                    </div>
                     {ratingData.map((item) => (
                       <RatingData  item = {item}   key = {item.title} />
                     ))}
                 </div>
 
                 <div className="sorting-section">
-                  <h3> Sort by  </h3>
+                <div  style = {{margin:'2%'}}>
+                         <h3> Sort by  </h3>
+                    </div>
                      <div className="low-to-high">
                       <input  type = "radio" 
                       id = "low"
