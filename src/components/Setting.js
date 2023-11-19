@@ -18,8 +18,8 @@ const Setting = () => {
 
   return (
     <>
-      <h2> Setting  </h2>
-      <button  onClick = {handlelogout}  style =  {{padding:'0.8% 3%'}}> 
+      <div style = {{fontSize:'24px',margin:'1%'}}> Logout out from here  </div> 
+      <button  onClick = {handlelogout}  style =  {{padding:'0.5% 3%',margin:'1%'}}> 
          Logout 
        </button>
     </>

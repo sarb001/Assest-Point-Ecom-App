@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       <div className="footer">
         <p>Made by Sarb</p>
-          <div style = {{padding:'2%'}}>
+          <div style = {{padding:'1%'}}>
             <div className="footer-links" >
               <a href="https://github.com/sarb001">
                 <BsGithub />

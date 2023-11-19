@@ -149,3 +149,12 @@ form {
   .price{
     margin: 1%;
   }
+  #name , #email{
+    font-size: 25px;
+  }
+  .wishlist-items{
+     margin:  7%;
+  }
+  .cart-controller{
+    margin: 7%;
+  }

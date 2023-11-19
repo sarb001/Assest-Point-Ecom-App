@@ -11,16 +11,16 @@ const Profile = () => {
 
   return (
     <>
-      <h2> Profile info </h2>
-           <div className="profile-container">
-              <h3> First Name </h3> 
-              <h4>  {profile.firstName} </h4>
-
-               <h3> Email - </h3> 
-              <h4> {profile.email} </h4>
-
-              <h3> Contact Number  </h3>
-              <h4> 99999-44444 </h4>
+           <div className = "profile-container" style = {{margin:' 2% 2%'}}>
+             <h4> Profile information  </h4>
+              <div id = "name">  
+                <span>  Name -- </span>
+                <span> {profile.firstName} </span>
+              </div>
+              <div id = "email">  
+                <span>  Email = </span>
+                <span> {profile.email} </span>
+              </div>
            </div>
     </>
   )

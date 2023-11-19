@@ -5,6 +5,9 @@
     background-color: rgb(188, 185, 185);
     color: black;
     padding: 2%;
+    position:fixed;
+    top:0px;
+    width: 100%;
 }
 .header-second-section{
     display: grid;

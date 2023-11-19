@@ -18,9 +18,9 @@ const Cart = () => {
 
    const [clickcount,setclickcount] = useState(0);
 
-   const handleclick = () => {
-       setclickcount(clickcount + 1);
-      }
+      const handleclick = () => {
+         setclickcount(clickcount + 1);
+         }
 
        let message ;
        if(clickcount === 0) {
@@ -31,9 +31,9 @@ const Cart = () => {
 
 
   return (
-    <div className="cart-controller">
+   <>
        <Header />
-
+    <div className="cart-controller">
        {cartItems.length === 0 ? ( 
         <>
             <div className="cart-msg" >
@@ -43,7 +43,6 @@ const Cart = () => {
        ) :(
         <>  
              <div className="cart-container" >
-
                         <div className="cart-item" >
                               {cartItems?.map((item) => {
                                  return (
@@ -86,8 +85,8 @@ const Cart = () => {
         </>
        )}
            
-       <Footer />
     </div>
+   </>
   )
 }
 

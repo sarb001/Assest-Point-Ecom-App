@@ -30,7 +30,6 @@ const Wishlist = () => {
                   })}
              </>)}
           </div>
-     <Footer />
    </div>
    </>
   )
