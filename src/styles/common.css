@@ -1,19 +1,17 @@
 
-/* @import "https://litespeedui.netlify.app/components/components.css"; */
-
 .App{
      width: 100%;
     margin: 0px;
     padding: 0px;
 }
 form {
-    background-color: var(--clr-white);
+    background-color: lightcyan;
     padding: 2rem 4rem;
     width: 100%;
     max-width: 31.25rem;
     border-radius: 8px;
     margin: 4rem auto 0;
-    box-shadow: var(--light-shadow);
+    box-shadow: lavenderblush;
   }
   
   section form h2 {
@@ -44,12 +42,11 @@ form {
     padding: 0.5rem;
     font-family: inherit;
     font-size: inherit;
-    border: 2px solid var(--light-gray);
     border-radius: 6px;
   }
   
   input:focus {
-    border-color: var(--txt-dark);
+    border-color: darkgray;
   }
   
   .password-eye {

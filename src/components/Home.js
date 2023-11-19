@@ -25,10 +25,9 @@ const Home = () => {
     <>
         <Header />
          <div className="home-container" >
-
                 <div className="text-section">
-                  <h1> Discover the best personal finance content through timeless books
-                   by top authors </h1>
+                  <span id = "section-1"> Discover the best personal finance content through timeless books
+                   by top authors </span>
                 </div>
 
                 <div className="btn">
@@ -41,18 +40,18 @@ const Home = () => {
 
                     <div className="books-section" >
                         {featureImages.map((item) => (
-                       <Link to = '/products' key = {item.title}>
-                          <h2> {item.title} </h2>
-                          <img  src = {item.imgLink}  alt =  {item.title} 
-                          style = {{width:'85%'}} />
-                       </Link>
+                          <Link to = '/products' key = {item.title}>
+                              <h2> {item.title} </h2>
+                              <img  src = {item.imgLink}  alt =  {item.title} 
+                              style = {{width:'85%'}} />
+                          </Link>
                         ))}
                     </div>
 
                 </div>
 
                   <div className="book-week-section">
-                            <h2>   Book of the Week </h2>
+                            <span id = "book-text">   Book of the Week </span>
                       <div className="books-partition" >
 
                           <div className="mainbook-section" >
@@ -64,8 +63,8 @@ const Home = () => {
                           <div className="text-section">
                             <span> 
                                 <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
-                                <p>By Morgan Housel </p>
-                                <button class = 'btn btn-primary mg-sm'> Read More </button>
+                                <h4>By Morgan Housel </h4>
+                                {/* <button class = 'btn btn-primary mg-sm'> Read More </button> */}
                             </span>
 
                           </div>
