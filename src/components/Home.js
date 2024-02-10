@@ -24,14 +24,15 @@ const Home = () => {
   return (
     <>
         <Header />
-         <div className="home-container" >
+         <div className="home-container my-[15%] mx-[2%] " >
                 <div className="text-section">
-                  <span id = "section-1"> Discover the best personal finance content through timeless books
+                  <span className='text-[46px]'> 
+                   Discover the best personal finance content through timeless books
                    by top authors </span>
                 </div>
 
                 <div className="btn">
-                    <div className="btn-section" >
+                    <div className="btn-section w-[15%] p-[1%]  bg-black" >
                        <Link to = "/products"> Get Started </Link>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ const Home = () => {
                     <div className="books-section" >
                         {featureImages.map((item) => (
                           <Link to = '/products' key = {item.title}>
-                              <h2> {item.title} </h2>
+                              <div className='text-3xl'> {item.title} </div>
                               <img  src = {item.imgLink}  alt =  {item.title} 
                               style = {{width:'85%'}} />
                           </Link>

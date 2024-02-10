@@ -1,12 +1,7 @@
 .home-container{
     margin: 10% 5%;
 }
-.btn-section{
-    background-color: rgb(0, 0, 0);
-    border: 2px solid black;
-    padding:1%;
-    width:10%
-}
+
 .btn-section > a {
     color: #ffffff;
  }
