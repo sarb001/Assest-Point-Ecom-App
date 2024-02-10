@@ -5,23 +5,10 @@
 .btn-section > a {
     color: #ffffff;
  }
- .text-section{
-    margin: 1%;
- }
+
  #section-1{
     font-size: 36px;
  }
-.books-section{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    text-align:center;
-    margin: 4% 0%;
-}
-.books-partition{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 4%;
-}
 #book-text{
     font-size: 30px;
     font-weight: 800;

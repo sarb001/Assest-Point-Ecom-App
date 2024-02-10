@@ -5,8 +5,3 @@
     font-size: 18px;
 
 }
-.footer-links{
-    font-size: 25px;
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr))
-}

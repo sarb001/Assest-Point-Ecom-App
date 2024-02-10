@@ -25,34 +25,35 @@ const Home = () => {
     <>
         <Header />
          <div className="home-container my-[15%] mx-[2%] " >
-                <div className="text-section">
-                  <span className='text-[46px]'> 
+                <div className="text-section xs:mt-[25%] ">
+                  <span className='xs:text-[28px]   text-[46px]'> 
                    Discover the best personal finance content through timeless books
                    by top authors </span>
                 </div>
 
                 <div className="btn">
-                    <div className="btn-section w-[15%] p-[1%]  bg-black" >
+                    <div className="btn-section xs:p-1.5  xs:w-[35%] w-[15%] p-[1%]  bg-black" >
                        <Link to = "/products"> Get Started </Link>
                     </div>
                 </div>
 
                 <div className="my-12">
 
-                    <div className = "" >
+                    <div>
                         {featureImages.map((item) => (
                           <>
-                           <div key = {item.title}>
+                           <div className = 'xs:my-8' key = {item.title}>
                             <div className='text-3xl'> {item.title} </div>
 
-                            <div>
-                              <Link to = '/products' >
-                                  <div className='w-[100%] h-[100%] overflow-hidden'>
-                                    <img  className='w-full h-full object-cover' 
-                                    src = {item.imgLink}  alt =  {item.title}  />
-                                  </div>
-                              </Link>
-                            </div>
+                              <div>
+                                <Link to = '/products' >
+                                    <div className='w-[100%] h-[100%] overflow-hidden'>
+                                      <img  className='w-full h-full object-cover' 
+                                      src = {item.imgLink}  alt =  {item.title}  />
+                                    </div>
+                                </Link>
+                              </div>
+
                           </div>
                           </>
                         ))}
@@ -62,22 +63,24 @@ const Home = () => {
 
                   <div className="book-week-section">
                             <span id = "book-text">   Book of the Week </span>
+
                       <div className="books-partition" >
 
-                          <div className="mainbook-section" >
-                                <span> 
-                                  <img src = {IMAGES.book1}  alt = "The Psychology of Money" style = {{width:'45%'}} /> 
-                                </span>
-                          </div>
+                            <div className="xs:p-2" >
+                                  <span className='xs:flex w-full'> 
+                                    <img src = {IMAGES.book1}  alt = "The Psychology of Money"  className='xs:w-full' /> 
+                                  </span>
+                            </div>
                           
-                          <div className="text-section">
-                            <span> 
-                                <h2> The Psychology of Money Timeless lessons on wealth , greed etc  </h2>
-                                <h4>By Morgan Housel </h4>
-                                {/* <button class = 'btn btn-primary mg-sm'> Read More </button> */}
-                            </span>
+                            <div className="xs:text-xl xs:mx-4">
+                              <span> 
+                                  <div> 
+                                    The Psychology of Money Timeless lessons
+                                     on wealth , greed etc - By Morgan Housel 
+                                  </div>
+                                  </span>
 
-                          </div>
+                            </div>
 
                       </div>
                   </div>
