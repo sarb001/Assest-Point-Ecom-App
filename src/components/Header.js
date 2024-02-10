@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <>
             <header>
-                <div className = "header-container bg-slate-400 md:bg-red-600 lg:bg-green-600">
+                <div className = "header-container xs:bg-gray-700 sm:bg-amber-800 md:bg-red-600 lg:bg-pink-600 xl:bg-blue-900">
                      
                      <div className="header-first-section">
                         <span id = "link-one" > <Link to = "/"> Assest Point  </Link> </span>

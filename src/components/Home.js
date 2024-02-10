@@ -37,15 +37,24 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="selected-books">
+                <div className="my-12">
 
-                    <div className="books-section" >
+                    <div className = "" >
                         {featureImages.map((item) => (
-                          <Link to = '/products' key = {item.title}>
-                              <div className='text-3xl'> {item.title} </div>
-                              <img  src = {item.imgLink}  alt =  {item.title} 
-                              style = {{width:'85%'}} />
-                          </Link>
+                          <>
+                           <div key = {item.title}>
+                            <div className='text-3xl'> {item.title} </div>
+
+                            <div>
+                              <Link to = '/products' >
+                                  <div className='w-[100%] h-[100%] overflow-hidden'>
+                                    <img  className='w-full h-full object-cover' 
+                                    src = {item.imgLink}  alt =  {item.title}  />
+                                  </div>
+                              </Link>
+                            </div>
+                          </div>
+                          </>
                         ))}
                     </div>
 
