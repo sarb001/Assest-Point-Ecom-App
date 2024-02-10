@@ -2,9 +2,6 @@ import { Response } from "miragejs";
 import jwt_decode from 'jwt-decode';
 import dayjs from 'dayjs';
 
-// used  for Authorizing Route in Backend 
-// for Authorizing - token is filled && jwt-secret 
-// After that Specific Detail is Pulled  Out 
 
 export const AuthorizingRoute = function (request) {
     const encodedToken = request.requestHeaders.authorization;
