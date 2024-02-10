@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import MenuRoutes from './components/MenuRoutes';
 import './styles/common.css';
+import './styles/index.css' ;
 
 function App() {
   return (

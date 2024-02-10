@@ -37,6 +37,7 @@ const Signup = () => {
    const handleSignUp = async(e) => {
      e.preventDefault();
      if(signUpData.password === signUpData.confirmPassword){
+
       try{
         const response = await axios.post('/api/auth/signup' , {
            email : signUpData.email,
@@ -58,6 +59,7 @@ const Signup = () => {
       }catch(error){
         toast.error(error.message);
       }
+      
      }else{
       toast.error(' Passwords must be Same ');
      }
