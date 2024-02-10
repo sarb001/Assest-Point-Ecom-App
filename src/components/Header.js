@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <>
             <header>
-                <div className = "header-container xs:bg-gray-700 sm:bg-amber-800 md:bg-red-600 lg:bg-pink-600 xl:bg-blue-900">
+                <div className = "grid grid-cols-2 text-xl w-full p-4  bg-green-500  sm:bg-amber-400 md:bg-red-600 lg:bg-pink-600 xl:bg-blue-500">
                      
                      <div className="header-first-section">
                         <span id = "link-one" > <Link to = "/"> Assest Point  </Link> </span>

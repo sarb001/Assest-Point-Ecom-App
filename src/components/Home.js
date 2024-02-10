@@ -24,15 +24,15 @@ const Home = () => {
   return (
     <>
         <Header />
-         <div className="home-container my-[15%] mx-[2%] " >
+         <div className="home-container mt-[10%] mb-[15%] mx-[2%] " >
                 <div className="text-section xs:mt-[25%] ">
-                  <span className='xs:text-[28px]   text-[46px]'> 
+                  <span className='text-[40px]'> 
                    Discover the best personal finance content through timeless books
                    by top authors </span>
                 </div>
 
                 <div className="btn">
-                    <div className="btn-section xs:p-1.5  xs:w-[35%] w-[15%] p-[1%]  bg-black" >
+                    <div className="btn-section p-1.5  w-[30%] bg-black" >
                        <Link to = "/products"> Get Started </Link>
                     </div>
                 </div>

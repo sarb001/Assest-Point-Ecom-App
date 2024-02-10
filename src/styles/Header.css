@@ -1,4 +1,4 @@
-.header-container{
+/* .header-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: 25px;
@@ -7,7 +7,7 @@
     position:fixed;
     top:0px;
     width: 100%;
-}
+} */
 .header-second-section{
     display: grid;
     grid-template-columns : 1fr 1fr 1fr;
