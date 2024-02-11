@@ -14,6 +14,7 @@ const WishlistProductCard = ({maindata}) => {
     
       <>
       <img className="card-img" src = {imgSrc} alt={title} style = {{width:'20%'}} />
+    
       <div className="card-title">
         <h4>{title}</h4>
         <span
@@ -23,12 +24,15 @@ const WishlistProductCard = ({maindata}) => {
           favorite
         </span>
       </div>
+
       <p className="card-subtitle">{author}</p>
+
       <div className="card-pricing">
         <p className="card-price fw-bold">₹{newPrice}</p>
         <p className="card-price-cut">₹{oldPrice}</p>
         <p className="card-price-discount">({discount}% off)</p>
       </div>
+      
       {isAddedToCart ? (
         <Link to="/cart" href="#" className="btn btn-icon-text-outline">
           Go to cart

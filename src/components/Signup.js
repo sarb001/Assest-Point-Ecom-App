@@ -72,6 +72,8 @@ const Signup = () => {
       <section className="app-ctn">
         <form className="br-md" onSubmit={handleSignUp}>
           <h2 className="text-center mg-bottom-md">Signup</h2>
+          
+          
           <div className="form-control">
             <label htmlFor="first-name" className="fw-bold">
               First name
@@ -86,6 +88,7 @@ const Signup = () => {
               onChange={(e) => handleSignUpData(e)}
             />
           </div>
+
           <div className="form-control">
             <label htmlFor="last-name" className="fw-bold">
               Last name
@@ -96,6 +99,7 @@ const Signup = () => {
               onChange={(e) => handleSignUpData(e)}
             />
           </div>
+
           <div className="form-control">
             <label htmlFor="email" className="fw-bold">
               Email address
@@ -110,6 +114,7 @@ const Signup = () => {
               onChange={(e) => handleSignUpData(e)}
             />
           </div>
+
           <div className="form-control">
             <label htmlFor="password" className="fw-bold">
               Password
@@ -125,6 +130,7 @@ const Signup = () => {
             />
           
           </div>
+
           <div className="form-control">
             <label htmlFor="confirm-password" className="fw-bold">
               Confirm password
@@ -139,6 +145,7 @@ const Signup = () => {
               onChange={(e) => handleSignUpData(e)}
             />
           </div>
+
           <div className="form-control">
             <input type="checkbox" id="terms-condition" name="checkbox" />
             <label htmlFor="terms-condition" className="fw-bold">

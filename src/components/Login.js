@@ -69,9 +69,7 @@ const Login = () => {
           )}
 
             <div className="form-control">
-              <label htmlFor="email" className="fw-bold">
-                Email address
-              </label>
+              <label htmlFor="email" className="fw-bold">  Email address </label>
               <input type="email"  name="email"
                 id="email"
                 placeholder="name@gmail.com"

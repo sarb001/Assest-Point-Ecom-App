@@ -47,9 +47,9 @@ const Products = () => {
           </div>
           
           <div className="text-section">
-            <h3> Total No. {finalproducts.length} of Products </h3>
+            <span className='text-3xl'> Total No. {finalproducts.length} of Products </span>
 
-              <div className = "all-products" style = {{display:'grid',gridTemplateColumns:'repeat(2,1fr)'}}>
+              <div className = "flex flex-col flex-wrap gap-8 md:grid md:grid-cols-2" >
                  {finalproducts.map((item) => (
                     <ProductCard  maindata = {item}  key = {item.title} />
                   )
