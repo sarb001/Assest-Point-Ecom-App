@@ -1,15 +1,14 @@
 import React from 'react'
 import { BsGithub , BsLinkedin ,BsTwitter } from 'react-icons/bs';
-import '../styles/Footer.css';
 
 
 const Footer = () => {
   return (
     <>
-      <div className="footer">
+      <div className="text-[18px] xl:text-3xl bg-slate-500 text-center text-black">
         <p>Made by Sarb</p>
           <div style = {{padding:'1%'}}>
-            <div className = "xs:grid xs:grid-cols-3 xs:p-2 justify-center" >
+            <div className = "grid grid-cols-3 p-2 justify-items-center" >
 
               <div>
                 <a href="https://github.com/sarb001">
