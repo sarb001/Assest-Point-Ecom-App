@@ -38,7 +38,7 @@ const Home = () => {
                 </div>
 
                 <div className="my-12">
-                    <div className='flex flex-wrap flex-col sm:grid sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-1 xl:gap-20'>
+                    <div className='flex flex-wrap flex-col sm:grid sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6  xl:gap-20'>
                         {featureImages.map((item) => (
                           <>
                            <div className = 'xs:my-8' key = {item.title}>
