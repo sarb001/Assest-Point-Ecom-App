@@ -24,22 +24,23 @@ const Header = () => {
   return (
     <>
             <header>
-                <div className = "grid grid-cols-2 text-xl w-full p-4  bg-green-500  sm:bg-amber-400 md:bg-red-600 lg:bg-pink-600 xl:bg-blue-500">
+                <div className = "grid grid-cols-2 text-xl w-full p-4 bg-slate-400">
                      
                      <div className="header-first-section">
                         <span id = "link-one" > <Link to = "/"> Assest Point  </Link> </span>
                      </div>
 
+
                      <div className="header-second-section justify-end">
-                       
-                        <div className={`grid grid-rows-2 
-                        bg-lime-400 gap-8 absolute top-16 text-center py-2 w-full right-0
-                           
+                        <div className={`
+                         bg-slate-400
+                         md:grid md:grid-cols-2 md:w-[200px]  md:gap-0 md:top-0 md:static 
+                         gap-8 absolute top-12 text-center py-2 w-full right-0
                          ${showlinks ? 'block' : 'hidden'}`}>
-                           <div className='sm:block md:block' id = "link-one">
+                           <div id = "link-one">
                               <Link to = "/products"> Shop  </Link> 
                            </div>
-                           <div className='sm:block md:block' id = "link-one"> 
+                           <div id = "link-one"> 
                               <Link to = "/profile"> Profile  </Link>
                            </div>
                         </div>
@@ -61,7 +62,7 @@ const Header = () => {
 
                         <span className='text-center relative flex justify-end md:hidden lg:hidden xl:hidden'>
                            <span onClick={() => handlemenu()} className='text-3xl'>  
-                              {!showlinks ? <GiHamburgerMenu /> : <ImCancelCircle /> }
+                              {showlinks ? <ImCancelCircle /> :  <GiHamburgerMenu /> }
                             </span>
                         </span>
 
