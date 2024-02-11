@@ -19,7 +19,7 @@ const Setting = () => {
   return (
     <>
       <div style = {{fontSize:'24px',margin:'1%'}}> Logout out from here  </div> 
-      <button  onClick = {handlelogout}  style =  {{padding:'0.5% 3%',margin:'1%'}}> 
+      <button  onClick = {handlelogout} className='bg-slate-500 py-2 px-4 text-black'> 
          Logout 
        </button>
     </>

@@ -12,8 +12,8 @@ const UserProfile = () => {
        <Header />
               <div className="userprofile-section" style = {{textAlign:'center',marginTop:'3%'}}>
                   <div className="userprofile-buttons" >
-                      <button style = {{padding:'0.5% 3%'}} onClick={() => setactiveTab('Profile')}  > Profile </button>
-                      <button style = {{padding:'0.5% 3%'}} onClick={() => setactiveTab('Setting')}  > Settings  </button>
+                      <button className='bg-slate-400 py-2 px-4 mx-2' onClick={() => setactiveTab('Profile')}  > Profile </button>
+                      <button className='bg-slate-400 py-2 px-4 '  onClick={() => setactiveTab('Setting')}  > Settings  </button>
                   </div>
                     { (activeTab === 'Settings') && <Setting /> }
                     { (activeTab === 'Profile')  && <Profile /> }
