@@ -61,7 +61,7 @@ const ProductFilter = () => {
         <div className = "productfilter-container">
                 <div className = "clearbtn-section">
                   <div style = {{margin:'1%'}}>  <h3> Filters </h3></div> 
-                    <button id = "clear-btn" onClick = {() => dispatch({type : "CLEAR"})} > 
+                    <button className = 'bg-slate-500 p-3 px-6' onClick = {() => dispatch({type : "CLEAR"})} > 
                     Clear </button>
                 </div>
 
